@@ -17,8 +17,27 @@ import operator
 import string
 import os
 
+"""
+1) [5 points] Choose one or more news websites to analyze, such as news.yahoo.com, www.cnn.com, 
+or www.aljazeera.com (we will make no assumptions about your political affiliations based on your 
+choice of source. You may also use specialty sites such as www.people.com or www.espn.com. 
+Indicate your preference in the spreadsheet located here (you may not choose a source that another 
+group has already chosen): 
+https://docs.google.com/spreadsheets/d/14mWBrlU_xn5vnF8JZLlJUDbAB3T0NZfUsUkPyeyzGhE/edit#gid=0
+"""
 # request page using home html
 mainSite = "https://www.cbssports.com/olympics/"
+
+"""
+2) [5 points] Write a script using beautifulsoup that will download at least 100 full articles from the 
+site. The script should not hardcode any sites other than the homepage, and it should be able to run 
+at any time and collect the most recent articles.
+
+3) [5 points] Place the articles retrieved into a file called articles.json in the root level of your github repo. 
+Each line of this file should contain the data of one article, with the following fields: title, author, date, and body. 
+If any of these cannot be found, use "None." however there must be a body, and this should be the entire text of the 
+main body, with all hyperlinks and media removed. It must be at least 100 words long.
+"""
 # number of articles we wish to collect (groups of 9 so round down)
 n = 100
 
@@ -135,6 +154,14 @@ for i in range(1, n//9+1):
                 data.append(article)
                 f.seek(0)
                 json.dump(data, f)
+
+"""
+4) [10 points] Add an additional field to articles.json, called "preprocessed." This should take the body field and 
+remove stop words, lemmatize and stem (if appropriate) and/or removing frequent, infrequent words.
+
+5) [5 points] Call the script that performs 1-4 scraper.py and place in the root directory of your repo. You should 
+indicate in the comments clearly where you perform each of the tasks listed above.
+"""
 
 # open the file to read from
 filePost = open(filenameArticle,mode='r', encoding='UTF-8')
