@@ -7,6 +7,9 @@ from gensim.models import CoherenceModel
 # read the json files
 import json
 
+# plot graphs
+import matplotlib.pyplot as plt
+
 """
 6) [10 points] Using gensim, perform topic modeling on your data for between 10 and 30 topics. For each topic model, you 
 should measure its performance using perplexity, Bayesian information criterion, and/or coherence. For each measurement, 
@@ -30,11 +33,35 @@ for text in preprocessText:
     new = bagOfWords.doc2bow(text)
     corpus.append(new)
 
-# create topic model
-topicModel = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=bagOfWords, num_topics=20)
+# keep track of number of topics and coherence
+numTopics = []
+coherences = []
 
-for topic in topicModel.print_topics():
-    print(topic)
+# iterate through the different number of topics
+for nt in range(20,31):
+    # create topic model
+    topicModel = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=bagOfWords, num_topics=nt)
+
+    # calculate the coherence value
+    cm = CoherenceModel(model=topicModel, corpus=corpus, coherence='u_mass')
+    c = cm.get_coherence()
+
+    # add the number of topics and coherence to the lists
+    numTopics.append(nt)
+    coherences.append(c)
+
+# plot the values
+fileCoherence="plotCoherence.svg"
+plt.plot(numTopics, coherences)
+# add title and labels to axis
+#TODO come up with better title
+plt.title("Coherence Values over change of number of topics")
+plt.xlabel("Number of topics")
+plt.ylabel("Coherence value")
+# store the plot
+plt.savefig(fileCoherence)
+plt.close()
+
 """
 7) [10 points] Choose the optimal number of topics based on your graph. Explain in your report how you came to that 
 conclusion.
