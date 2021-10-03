@@ -11,6 +11,9 @@ from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 import spacy
 sp = spacy.load('en_core_web_sm')
+# remove frequent words
+import collections
+from collections import Counter
 
 import operator
 
@@ -40,10 +43,9 @@ main body, with all hyperlinks and media removed. It must be at least 100 words 
 """
 # number of articles we wish to collect (groups of 9 so round down)
 n = 100
-
 # json file to store articles
 filenameArticle = 'articles.json'
-
+"""
 # initailly should be empty file
 with open(filenameArticle, mode='w', encoding='UTF-8') as f:
     json.dump([], f)
@@ -154,6 +156,7 @@ for i in range(1, n//9+1):
                 data.append(article)
                 f.seek(0)
                 json.dump(data, f)
+"""
 
 """
 4) [10 points] Add an additional field to articles.json, called "preprocessed." This should take the body field and 
@@ -171,11 +174,15 @@ dataArticles = json.load(filePost)
 # create the set of stopwords
 nltk.download('stopwords')
 englishStopWords = list(stopwords.words('english'))
+
 # use natural language toolkit lemmatizer
 wnl = WordNetLemmatizer()
 punctuation =  '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
-# the index of the word we are changing
-index = 0
+
+# keep track of all words, useful in removing frequent words
+articleWords = []
+# keep track of sentences
+preprocessArticles = []
 
 # iterate through the text
 for postText in dataArticles:
@@ -203,6 +210,11 @@ for postText in dataArticles:
             if(not onlyPunctuation):
                 preprocessPost += prefix + (word.lemma_)
                 prefix = " "
+
+                # add the word to the list of words
+                articleWords.append(word.lemma_)
+    preprocessArticles.append(preprocessPost)
+    """
     # add the new sentence to the file
     with open(filenameArticle, mode='r+', encoding='UTF-8') as f:
         data = json.load(f)
@@ -210,7 +222,39 @@ for postText in dataArticles:
         data[index]['preprocessed']= preprocessPost
         f.seek(0)
         json.dump(data, f)
+    """
+filePost.close()
 
-    filePost.close()
-    # increment to next value
-    index+=1
+
+# remove frequent words
+countWords = Counter(articleWords)
+# remove the top 20 words
+highestFrequence = countWords.most_common(20)
+highestFrequenceWord = []
+for wordData in highestFrequence:
+    highestFrequenceWord.append(wordData[0])
+
+# iterate through the preprocess articles
+for i in range(0, len(preprocessArticles)):
+    body = preprocessArticles[i]
+    print(body)
+
+    # create a sentence of words
+    preprocessPost = ""
+    prefix = ""
+
+    # filter so no longer contains the freqent words
+    for word in body.split():
+        # get rid of freqentWords
+        if (not word.replace("'", "") in highestFrequenceWord):
+            preprocessPost += prefix + (word)
+            prefix = " "
+    print(preprocessPost)
+
+    # add the new sentence to the file
+    with open(filenameArticle, mode='r+', encoding='UTF-8') as f:
+        data = json.load(f)
+        # add the text of the file
+        data[i]['preprocessed'] = preprocessPost
+        f.seek(0)
+        json.dump(data, f)
