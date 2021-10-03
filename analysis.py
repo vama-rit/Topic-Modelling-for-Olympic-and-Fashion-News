@@ -1,11 +1,41 @@
+# perform topic modeling
 import gensim
+from gensim.corpora import Dictionary
+from gensim.utils import simple_preprocess
+from gensim.models import CoherenceModel
+
+# read the json files
+import json
 
 """
 6) [10 points] Using gensim, perform topic modeling on your data for between 10 and 30 topics. For each topic model, you 
 should measure its performance using perplexity, Bayesian information criterion, and/or coherence. For each measurement, 
-use matplotlib to graph each measure for each of the number of topics used. [10 points] A pdf of this graph(s) should 
-appear in your project report.
+use matplotlib to graph each measure for each of the number of topics used. 
+[10 points] A pdf of this graph(s) should appear in your project report.
+"""
+# open the file to read from
+file = open("articles.json", mode = 'r', encoding='UTF-8')
+# get the data and store in dictinary
+data = json.load(file)
 
+# keep track of preprocessed words
+preprocessText = []
+for article in data:
+    preprocessText.append(article["preprocessed"].split())
+
+# create a bag of words
+bagOfWords = Dictionary(preprocessText)
+corpus = []
+for text in preprocessText:
+    new = bagOfWords.doc2bow(text)
+    corpus.append(new)
+
+# create topic model
+topicModel = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=bagOfWords, num_topics=20)
+
+for topic in topicModel.print_topics():
+    print(topic)
+"""
 7) [10 points] Choose the optimal number of topics based on your graph. Explain in your report how you came to that 
 conclusion.
 
