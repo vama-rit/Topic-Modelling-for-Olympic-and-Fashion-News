@@ -35,13 +35,17 @@ for text in preprocessText:
 
 # keep track of number of topics and coherence
 numTopics = []
+perplexities = []
 coherences = []
 
 # iterate through the different number of topics
-for nt in range(20,31):
+for nt in range(10,31):
     # create topic model
     topicModel = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=bagOfWords, num_topics=nt)
 
+    # calculate the perplexity
+    p = topicModel.log_perplexity(corpus)
+    perplexities.append(p)
     # calculate the coherence value
     cm = CoherenceModel(model=topicModel, corpus=corpus, coherence='u_mass')
     c = cm.get_coherence()
@@ -51,6 +55,19 @@ for nt in range(20,31):
     coherences.append(c)
 
 # plot the values
+# perpelexity
+filePerplexity="plotPerplexity.svg"
+plt.plot(numTopics, perplexities)
+# add title and labels to axis
+#TODO come up with better title
+plt.title("Perplexity over change of number of topics")
+plt.xlabel("Number of topics")
+plt.ylabel("Perplexity")
+# store the plot
+plt.savefig(filePerplexity)
+plt.close()
+
+# coherence
 fileCoherence="plotCoherence.svg"
 plt.plot(numTopics, coherences)
 # add title and labels to axis
@@ -61,6 +78,8 @@ plt.ylabel("Coherence value")
 # store the plot
 plt.savefig(fileCoherence)
 plt.close()
+
+
 
 """
 7) [10 points] Choose the optimal number of topics based on your graph. Explain in your report how you came to that 
