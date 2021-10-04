@@ -150,7 +150,7 @@ for i in range(1, n//9+1):
 
         # check body is greater then 100 characters
         if(len(writtenContent.split(" ")) > 100):
-            print(article)
+            #print(article)
             with open(filenameArticle, 'r+') as f:
                 data = json.load(f)
                 data.append(article)
@@ -219,8 +219,8 @@ filePost.close()
 
 # remove frequent words
 countWords = Counter(articleWords)
-# remove the top 30 words
-highestFrequence = countWords.most_common(30)
+# remove the top words TODO change to remove certain number of frequent words
+highestFrequence = countWords.most_common(50)
 highestFrequenceWord = []
 # convert to a list that is easy to check if contains word
 for wordData in highestFrequence:
@@ -229,7 +229,6 @@ for wordData in highestFrequence:
 # iterate through the preprocess articles
 for i in range(0, len(preprocessArticles)):
     body = preprocessArticles[i]
-    print(body)
 
     # create a sentence of words
     preprocessPost = ""
@@ -241,7 +240,7 @@ for i in range(0, len(preprocessArticles)):
         if (not word.replace("'", "") in highestFrequenceWord):
             preprocessPost += prefix + (word)
             prefix = " "
-    print(preprocessPost)
+    #print(preprocessPost)
 
     # add the new sentence to the file
     with open(filenameArticle, mode='r+', encoding='UTF-8') as f:

@@ -9,6 +9,7 @@ import json
 
 # plot graphs
 import matplotlib.pyplot as plt
+import numpy as np
 
 """
 6) [10 points] Using gensim, perform topic modeling on your data for between 10 and 30 topics. For each topic model, you 
@@ -16,69 +17,86 @@ should measure its performance using perplexity, Bayesian information criterion,
 use matplotlib to graph each measure for each of the number of topics used. 
 [10 points] A pdf of this graph(s) should appear in your project report.
 """
-# open the file to read from
-file = open("articles.json", mode = 'r', encoding='UTF-8')
-# get the data and store in dictinary
-data = json.load(file)
+def createTopicModes():
+    # open the file to read from
+    file = open("articles.json", mode = 'r', encoding='UTF-8')
+    # get the data and store in dictinary
+    data = json.load(file)
 
-# keep track of preprocessed words
-preprocessText = []
-for article in data:
-    preprocessText.append(article["preprocessed"].split())
+    # keep track of preprocessed words
+    preprocessText = []
+    for article in data:
+        preprocessText.append(article["preprocessed"].split())
 
-# create a bag of words
-bagOfWords = Dictionary(preprocessText)
-corpus = []
-for text in preprocessText:
-    new = bagOfWords.doc2bow(text)
-    corpus.append(new)
+    # create a bag of words
+    bagOfWords = Dictionary(preprocessText)
+    corpus = []
+    for text in preprocessText:
+        new = bagOfWords.doc2bow(text)
+        corpus.append(new)
 
-# keep track of number of topics and coherence
-numTopics = []
-perplexities = []
-coherences = []
+    # keep track of number of topics and coherence
+    numTopics = []
+    perplexities = []
+    coherences = []
+    # since values 0 set as large negative value
+    maxC=-10
+    bestModel = None
 
-# iterate through the different number of topics
-for nt in range(10,31):
-    # create topic model
-    topicModel = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=bagOfWords, num_topics=nt)
+    # keep track of the actual topic models
+    topicModels = []
 
-    # calculate the perplexity
-    p = topicModel.log_perplexity(corpus)
-    perplexities.append(p)
-    # calculate the coherence value
-    cm = CoherenceModel(model=topicModel, corpus=corpus, coherence='u_mass')
-    c = cm.get_coherence()
+    # iterate through the different number of topics
+    for nt in range(10,31):
+        # create topic model
+        topicModel = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=bagOfWords, num_topics=nt)
+        topicModels.append(topicModel)
 
-    # add the number of topics and coherence to the lists
-    numTopics.append(nt)
-    coherences.append(c)
+        # calculate the perplexity, lower better
+        p = topicModel.log_perplexity(corpus)
+        perplexities.append(p)
+        # calculate the coherence value, higher better
+        cm = CoherenceModel(model=topicModel, corpus=corpus, coherence='u_mass')
+        c = cm.get_coherence()
+        # add the number of topics and coherence to the lists
+        numTopics.append(nt)
+        coherences.append(c)
 
-# plot the values
-# perpelexity
-filePerplexity="plotPerplexity.svg"
-plt.plot(numTopics, perplexities)
-# add title and labels to axis
-#TODO come up with better title
-plt.title("Perplexity over change of number of topics")
-plt.xlabel("Number of topics")
-plt.ylabel("Perplexity")
-# store the plot
-plt.savefig(filePerplexity)
-plt.close()
+        # check if better model
+        if(c>maxC):
+            maxC = c
+            bestModel = topicModel
 
-# coherence
-fileCoherence="plotCoherence.svg"
-plt.plot(numTopics, coherences)
-# add title and labels to axis
-#TODO come up with better title
-plt.title("Coherence Values over change of number of topics")
-plt.xlabel("Number of topics")
-plt.ylabel("Coherence value")
-# store the plot
-plt.savefig(fileCoherence)
-plt.close()
+    # plot the values
+    # perpelexity
+    filePerplexity="plotPerplexity.svg"
+    plt.plot(numTopics, perplexities)
+    # add title and labels to axis
+    #TODO come up with better title
+    plt.title("Perplexity over change of number of topics")
+    plt.xlabel("Number of topics")
+    plt.ylabel("Perplexity")
+    # space the x axis
+    plt.xticks(np.arange(10, 31, 2))
+    # store the plot
+    plt.savefig(filePerplexity)
+    plt.close()
 
+    # coherence
+    fileCoherence="plotCoherence.svg"
+    plt.plot(numTopics, coherences)
+    # add title and labels to axis
+    #TODO come up with better title
+    plt.title("Coherence Values over change of number of topics")
+    plt.xlabel("Number of topics")
+    plt.ylabel("Coherence value")
+    # space the x axis
+    plt.xticks(np.arange(10, 31, 2))
+    # store the plot
+    plt.savefig(fileCoherence)
+    plt.close()
+
+    return bestModel
 
 
 """
@@ -94,3 +112,15 @@ help produce the LaTeX for this table.
 9) [10 points] Project your articles into the topic model. For each topic, find the article where that topic is the most 
 likely. [10 points] Then in your report, list each topic number followed by the name and date of the article you found.
 """
+
+def main():
+    # find the best topic model
+    bestTopicModel = createTopicModes()
+
+    # print the topics
+    for topics in bestTopicModel.print_topics():
+        print(topics)
+
+
+if __name__ == '__main__':
+	main()
