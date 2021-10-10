@@ -11,14 +11,12 @@ from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 import spacy
 sp = spacy.load('en_core_web_sm')
-# remove frequent words
-import collections
-from collections import Counter
 
 import operator
-
 import string
 import os
+import collections
+from collections import Counter
 
 """
 1) [5 points] Choose one or more news websites to analyze, such as news.yahoo.com, www.cnn.com, 
@@ -28,6 +26,9 @@ Indicate your preference in the spreadsheet located here (you may not choose a s
 group has already chosen): 
 https://docs.google.com/spreadsheets/d/14mWBrlU_xn5vnF8JZLlJUDbAB3T0NZfUsUkPyeyzGhE/edit#gid=0
 """
+
+# Scraping website 1 - https://www.cbssports.com/olympics/
+
 # request page using home html
 mainSite = "https://www.cbssports.com/olympics/"
 
@@ -42,13 +43,14 @@ If any of these cannot be found, use "None." however there must be a body, and t
 main body, with all hyperlinks and media removed. It must be at least 100 words long.
 """
 # number of articles we wish to collect (groups of 9 so round down)
-n = 100
+n = 70
+
 # json file to store articles
 filenameArticle = 'articles.json'
 
 # initailly should be empty file
 with open(filenameArticle, mode='w', encoding='UTF-8') as f:
-    json.dump([], f)
+    json.dump([], f, indent = 1)
 
 for i in range(1, n//9+1):
     # next set of 9 articles we wish to scrape
@@ -150,12 +152,114 @@ for i in range(1, n//9+1):
 
         # check body is greater then 100 characters
         if(len(writtenContent.split(" ")) > 100):
-            #print(article)
+            print(article)
             with open(filenameArticle, 'r+') as f:
                 data = json.load(f)
                 data.append(article)
                 f.seek(0)
-                json.dump(data, f)
+                json.dump(data, f, indent = 1)
+
+# Scraping website 2 - https://www.vogue.com
+mainSite = "https://www.vogue.com/fashion?us_site=y/"
+
+visitedLinks = []
+for i in range(1, n//9+1):
+    # next set of 9 articles we wish to scrape
+    nextSite = mainSite+str(i)
+    page = requests.get(nextSite)
+    
+    # create beautifulsoup parser
+    soup = BeautifulSoup(page.content, "html.parser")
+    # iterate through articles on first page
+    for articles in soup.find_all('a', class_="summary-item__hed-link"):
+        # find the link to the next article.
+        # Must give header to cbs sports
+        articleLink = "https://www.vogue.com"+articles['href']
+        
+        if("/article/" in articleLink and articleLink not in visitedLinks):
+            visitedLinks.append(articleLink)
+            articlePage = requests.get(articleLink)
+            articleSoup = BeautifulSoup(articlePage.content, 'html.parser')
+
+            article = {}
+
+            # add link of article
+            article["link"] = articleLink
+            print(article["link"])
+            # add title of article
+            title = articleSoup.find('h1', class_="content-header__row content-header__hed")
+            if(not title == None):
+                article["title"] = title.text.strip()
+            else:
+                article["title"] = None
+
+            author = articleSoup.find("span", class_ = "byline__name")
+            if(not author == None):
+                article['author'] = author.text.strip()
+            else:
+                article['author'] = None
+
+            # time posted
+            posted = articleSoup.find('time', class_="content-header__publish-date")
+            if(posted == None):
+                article['date'] = None
+                article['time'] = None
+            else:
+
+                article['date'] = posted.text
+                article['time'] = None
+
+            # content
+            content = articleSoup.find('div', class_="article__body")
+            # sections
+            sections = []
+            # get top three headers
+            for sectionIndex in range(0, 4):
+                headerType = 'h'+str(sectionIndex)
+                sectionNames = content.find_all(headerType)
+                # increment through the sections
+                for s in sectionNames:
+                    # only want text paragraphs
+                    if (s.attrs == {} and len(s.text)>0):
+                        sections.append(s.text.strip())
+            if(len(sections) == 0):
+                article['section'] = None
+            else:
+                article['section'] = sections
+            # paragraphs
+            paragraphs = content.find_all('p')
+            writtenContent = ""
+            prefix = ""
+            # convert into one line
+            for p in paragraphs:
+                # only want text paragraphs and paragraphs containing text
+                if(p.attrs == {} and len(p.text.strip())>0):
+                    # only want 'p'
+                    writtenContent = writtenContent + prefix +  p.text.strip()
+                    prefix = " "
+            article['body'] = writtenContent
+            # lists
+            lists = content.find_all('ul')
+            listElements = []
+            #increment through the lists
+            for l in lists:
+                nextList = l.find_all('li')
+                for element in nextList:
+                    listElements.append(element.text)
+            if(len(listElements)==0):
+                article['list'] = None
+            else:
+                article['list'] = listElements
+            # check body is greater then 100 characters
+            if(len(writtenContent.split(" ")) > 100):
+                print(article)
+                with open(filenameArticle, 'r+') as f:
+                    data = json.load(f)
+                    data.append(article)
+                    f.seek(0)
+                    json.dump(data, f, indent = 1)
+                    
+# Scraping website 3 - https://www.abcnews.com
 
 
 """
@@ -165,7 +269,6 @@ remove stop words, lemmatize and stem (if appropriate) and/or removing frequent,
 5) [5 points] Call the script that performs 1-4 scraper.py and place in the root directory of your repo. You should 
 indicate in the comments clearly where you perform each of the tasks listed above.
 """
-
 # open the file to read from
 filePost = open(filenameArticle,mode='r', encoding='UTF-8')
 # get the data and store in dictionary
@@ -216,11 +319,12 @@ for postText in dataArticles:
     preprocessArticles.append(preprocessPost)
 filePost.close()
 
+# number of most frequent words to remove
+numTopics = 100
 
 # remove frequent words
 countWords = Counter(articleWords)
-# remove the top words TODO change to remove certain number of frequent words
-highestFrequence = countWords.most_common(50)
+highestFrequence = countWords.most_common(numTopics)
 highestFrequenceWord = []
 # convert to a list that is easy to check if contains word
 for wordData in highestFrequence:
@@ -248,4 +352,5 @@ for i in range(0, len(preprocessArticles)):
         # add the text of the file
         data[i]['preprocessed'] = preprocessPost
         f.seek(0)
-        json.dump(data, f)
+        json.dump(data, f, indent = 1)
+        
