@@ -114,7 +114,7 @@ def main():
     # print the topics
     for topicModel in topicModels:
         f.write("Topic of size : "+str(topicModel.num_topics)+"\n")
-        for topic in topicModel.print_topics():
+        for topic in topicModel.print_topics(num_words=20):
             f.write(str(topic)+"\n")
         f.write("\n")
     f.close()
