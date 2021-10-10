@@ -1,1107 +1,210 @@
-{
- "cells": [
-  {
-   "cell_type": "code",
-   "execution_count": 17,
-   "id": "dcb66344",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/new-york-city-stylists-fostering-a-community', 'title': 'These Four Rising Stylists Are Fostering a Community in NYC', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "Sarah Spellings\n",
-      "{'link': 'https://www.vogue.com/article/lena-dunham-wedding-dress', 'title': 'The Story Behind Lena Dunham’s 3 Wedding Gowns', 'author': 'Sarah Spellings', 'date': 'September 29, 2021', 'time': None}\n",
-      "Alice Newbold\n",
-      "{'link': 'https://www.vogue.com/article/naomie-harris-no-time-to-die', 'title': '“It Makes Me Feel Like A Million Dollars”: Naomie Harris On Her Memorable Michael Kors 007 Premiere Look', 'author': 'Alice Newbold', 'date': 'September 29, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-stylist-lorenzo-posocco', 'title': 'Dua Lipa’s Stylist Gave Me a Vintage Makeover', 'author': 'Liana Satenstein', 'date': 'September 29, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/milan-fashion-week-street-style-fall-sandals', 'title': 'Milan’s Street Style Stars Prove Sandal Season Isn’t Over (Yet)', 'author': 'Madeline Fass', 'date': 'September 27, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/london-fashion-week-street-style-prints-outfits', 'title': 'In London, Showgoers Share the Proper Way to Style Statement-Making Prints', 'author': 'Madeline Fass', 'date': 'September 21, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/new-york-fashion-week-street-style-shopping-spring-2022', 'title': 'Nobody Wears Black Better Than New Yorkers: Shop Their Fashion Week Looks', 'author': 'Madeline Fass', 'date': 'September 15, 2021', 'time': None}\n",
-      "Monica Mendal\n",
-      "{'link': 'https://www.vogue.com/article/t-shirt-outfits', 'title': 'The Best T-Shirt and Trouser Pairings for This Season’s Most Laidback Trend', 'author': 'Monica Mendal', 'date': 'October 3, 2021', 'time': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/what-i-wore-this-week-julie-tong', 'title': 'How One Vogue Editor Gets Dressed for a Fall Getaway Upstate', 'author': 'Julie Tong', 'date': 'October 2, 2021', 'time': None}\n",
-      "Lilah Ramzi\n",
-      "{'link': 'https://www.vogue.com/article/black-tie-attire', 'title': 'Is It a Skirt? Is It a Pant? Either Way, It’s the Only Thing I Want to Wear to Black Tie Events', 'author': 'Lilah Ramzi', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/rihanna-mini-skirt-fall-trend', 'title': 'Rihanna Gives the Mini Skirt a Playful Twist', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/angelina-jolie-variety-power-of-women-harithand-gown', 'title': 'Angelina Jolie Just Introduced the Next Great Red Carpet Label', 'author': 'Janelle Okwodu', 'date': 'October 1, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/eve-jobs-runway-debut-coperni-spring-2022', 'title': 'Eve Jobs Just Made Her Paris Fashion Week Debut', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/pattie-gonia-tiktok-drag-queen-environmentalism', 'title': 'Pattie Gonia Is the Drag Queen Bringing Environmentalism to TikTok', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Steff Yotka\n",
-      "{'link': 'https://www.vogue.com/article/charlotte-gainsbourg-zara-denim-collection', 'title': 'Charlotte Gainsbourg Creates Her Essential Wardrobe From Jeans to Tees for Zara', 'author': 'Steff Yotka', 'date': 'October 2, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/best-fashion-instagrams-kerwin-frost-cardi-b-shalom-harlow', 'title': 'Best Fashion Instagrams of the Week: Cardi B, Milla Jovovich, Shalom Harlow, and More', 'author': 'Liana Satenstein', 'date': 'October 2, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/balenciaga-handbags', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/loewe-handbags', 'title': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cute-maternity-dresses', 'title': '20 Maternity Dresses to Consider Wearing This Fall, Courtesy of Rosie Huntington-Whiteley and More Expectant Celebs', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/october-2021-dresses-to-shop-now', 'title': 'October Is Here– 15 Delightful Dresses to Shop this Month', 'author': 'Madeline Fass', 'date': 'October 1, 2021', 'time': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cool-things-to-buy-editor-purchases-september-2021', 'title': 'From Viral Bottega Veneta Boots to Designer Collabs, 28 Items Vogue Editors Purchased (and Loved) in September', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Rachel Besser\n",
-      "{'link': 'https://www.vogue.com/article/best-golf-clothes-for-women', 'title': 'You’ll Want to Sport This Golf Gear On and Off the Course', 'author': 'Rachel Besser', 'date': 'October 1, 2021', 'time': None}\n",
-      "Liam Hess\n",
-      "{'link': 'https://www.vogue.com/article/izaak-adu-watts-savage-x-fenty-model-interview', 'title': 'Meet Izaak Adu-Watts, the Breakout Model From Rihanna’s Savage x Fenty Show', 'author': 'Liam Hess', 'date': 'October 1, 2021', 'time': None}\n",
-      "Shelli Nicole\n",
-      "{'link': 'https://www.vogue.com/article/hilary-banks-style', 'title': 'An Ode to Hilary Banks—The Bougie Big Sister of My Dreams', 'author': 'Shelli Nicole', 'date': 'October 1, 2021', 'time': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/net-a-porter-reflaunt-new-resale-platform', 'title': 'Net-a-Porter Is Launching a Resale Pilot Program With Reflaunt', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/fall-skirts', 'title': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/best-white-t-shirts-for-women', 'title': '32 Vogue Editors Share the Best White T-Shirts', 'author': 'Julie Tong', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/bold-printed-blazer-fall-trend', 'title': 'Why the Bold, Printed Blazer Is My New Fall Staple', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/street-style-bags-fall-winter-2021', 'title': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/california-sb-62-garment-worker-protection-act', 'title': 'California Just Passed a Landmark Bill to Protect Garment Workers—Here’s What It Means for the Entire Fashion Industry', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/dakota-johnson-gucci-bustier-the-lost-daughter-premiere', 'title': 'Dakota Johnson’s Latest Look Shows the Other Side of Gucci', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Laird Borrelli-Persson\n",
-      "{'link': 'https://www.vogue.com/article/chloe-handbags', 'title': 'From the Paddington to the Marcie, a History of Chloé Handbags', 'author': 'Laird Borrelli-Persson', 'date': 'September 30, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-wired-earphones', 'title': 'Dua Lipa Artfully Accessorizes With Wired Headphones', 'author': 'Liana Satenstein', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/bridal-face-masks', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/best-wedding-guest-dresses', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/cardi-b-schiaparelli-surrealism-paris-fashion-week', 'title': 'Cardi B Brings Schiaparelli’s Surrealism to the Streets', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/kate-middleton-bright-suit-emilia-wickstead', 'title': 'Kate Middleton Is Bringing Bright Suits Into Fall', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/new-arrivals-sept-28-2021', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/new-york-city-stylists-fostering-a-community', 'title': 'These Four Rising Stylists Are Fostering a Community in NYC', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Sarah Spellings\n",
-      "{'link': 'https://www.vogue.com/article/lena-dunham-wedding-dress', 'title': 'The Story Behind Lena Dunham’s 3 Wedding Gowns', 'author': 'Sarah Spellings', 'date': 'September 29, 2021', 'time': None}\n",
-      "Alice Newbold\n",
-      "{'link': 'https://www.vogue.com/article/naomie-harris-no-time-to-die', 'title': '“It Makes Me Feel Like A Million Dollars”: Naomie Harris On Her Memorable Michael Kors 007 Premiere Look', 'author': 'Alice Newbold', 'date': 'September 29, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-stylist-lorenzo-posocco', 'title': 'Dua Lipa’s Stylist Gave Me a Vintage Makeover', 'author': 'Liana Satenstein', 'date': 'September 29, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/milan-fashion-week-street-style-fall-sandals', 'title': 'Milan’s Street Style Stars Prove Sandal Season Isn’t Over (Yet)', 'author': 'Madeline Fass', 'date': 'September 27, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/london-fashion-week-street-style-prints-outfits', 'title': 'In London, Showgoers Share the Proper Way to Style Statement-Making Prints', 'author': 'Madeline Fass', 'date': 'September 21, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/new-york-fashion-week-street-style-shopping-spring-2022', 'title': 'Nobody Wears Black Better Than New Yorkers: Shop Their Fashion Week Looks', 'author': 'Madeline Fass', 'date': 'September 15, 2021', 'time': None}\n",
-      "Monica Mendal\n",
-      "{'link': 'https://www.vogue.com/article/t-shirt-outfits', 'title': 'The Best T-Shirt and Trouser Pairings for This Season’s Most Laidback Trend', 'author': 'Monica Mendal', 'date': 'October 3, 2021', 'time': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/what-i-wore-this-week-julie-tong', 'title': 'How One Vogue Editor Gets Dressed for a Fall Getaway Upstate', 'author': 'Julie Tong', 'date': 'October 2, 2021', 'time': None}\n",
-      "Lilah Ramzi\n",
-      "{'link': 'https://www.vogue.com/article/black-tie-attire', 'title': 'Is It a Skirt? Is It a Pant? Either Way, It’s the Only Thing I Want to Wear to Black Tie Events', 'author': 'Lilah Ramzi', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/rihanna-mini-skirt-fall-trend', 'title': 'Rihanna Gives the Mini Skirt a Playful Twist', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/angelina-jolie-variety-power-of-women-harithand-gown', 'title': 'Angelina Jolie Just Introduced the Next Great Red Carpet Label', 'author': 'Janelle Okwodu', 'date': 'October 1, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/eve-jobs-runway-debut-coperni-spring-2022', 'title': 'Eve Jobs Just Made Her Paris Fashion Week Debut', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/pattie-gonia-tiktok-drag-queen-environmentalism', 'title': 'Pattie Gonia Is the Drag Queen Bringing Environmentalism to TikTok', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Steff Yotka\n",
-      "{'link': 'https://www.vogue.com/article/charlotte-gainsbourg-zara-denim-collection', 'title': 'Charlotte Gainsbourg Creates Her Essential Wardrobe From Jeans to Tees for Zara', 'author': 'Steff Yotka', 'date': 'October 2, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/best-fashion-instagrams-kerwin-frost-cardi-b-shalom-harlow', 'title': 'Best Fashion Instagrams of the Week: Cardi B, Milla Jovovich, Shalom Harlow, and More', 'author': 'Liana Satenstein', 'date': 'October 2, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/balenciaga-handbags', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/loewe-handbags', 'title': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cute-maternity-dresses', 'title': '20 Maternity Dresses to Consider Wearing This Fall, Courtesy of Rosie Huntington-Whiteley and More Expectant Celebs', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/october-2021-dresses-to-shop-now', 'title': 'October Is Here– 15 Delightful Dresses to Shop this Month', 'author': 'Madeline Fass', 'date': 'October 1, 2021', 'time': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cool-things-to-buy-editor-purchases-september-2021', 'title': 'From Viral Bottega Veneta Boots to Designer Collabs, 28 Items Vogue Editors Purchased (and Loved) in September', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Rachel Besser\n",
-      "{'link': 'https://www.vogue.com/article/best-golf-clothes-for-women', 'title': 'You’ll Want to Sport This Golf Gear On and Off the Course', 'author': 'Rachel Besser', 'date': 'October 1, 2021', 'time': None}\n",
-      "Liam Hess\n",
-      "{'link': 'https://www.vogue.com/article/izaak-adu-watts-savage-x-fenty-model-interview', 'title': 'Meet Izaak Adu-Watts, the Breakout Model From Rihanna’s Savage x Fenty Show', 'author': 'Liam Hess', 'date': 'October 1, 2021', 'time': None}\n",
-      "Shelli Nicole\n",
-      "{'link': 'https://www.vogue.com/article/hilary-banks-style', 'title': 'An Ode to Hilary Banks—The Bougie Big Sister of My Dreams', 'author': 'Shelli Nicole', 'date': 'October 1, 2021', 'time': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/net-a-porter-reflaunt-new-resale-platform', 'title': 'Net-a-Porter Is Launching a Resale Pilot Program With Reflaunt', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/fall-skirts', 'title': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/best-white-t-shirts-for-women', 'title': '32 Vogue Editors Share the Best White T-Shirts', 'author': 'Julie Tong', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/bold-printed-blazer-fall-trend', 'title': 'Why the Bold, Printed Blazer Is My New Fall Staple', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/street-style-bags-fall-winter-2021', 'title': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/california-sb-62-garment-worker-protection-act', 'title': 'California Just Passed a Landmark Bill to Protect Garment Workers—Here’s What It Means for the Entire Fashion Industry', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/dakota-johnson-gucci-bustier-the-lost-daughter-premiere', 'title': 'Dakota Johnson’s Latest Look Shows the Other Side of Gucci', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Laird Borrelli-Persson\n",
-      "{'link': 'https://www.vogue.com/article/chloe-handbags', 'title': 'From the Paddington to the Marcie, a History of Chloé Handbags', 'author': 'Laird Borrelli-Persson', 'date': 'September 30, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-wired-earphones', 'title': 'Dua Lipa Artfully Accessorizes With Wired Headphones', 'author': 'Liana Satenstein', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/bridal-face-masks', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/best-wedding-guest-dresses', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/cardi-b-schiaparelli-surrealism-paris-fashion-week', 'title': 'Cardi B Brings Schiaparelli’s Surrealism to the Streets', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/kate-middleton-bright-suit-emilia-wickstead', 'title': 'Kate Middleton Is Bringing Bright Suits Into Fall', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/new-arrivals-sept-28-2021', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/new-york-city-stylists-fostering-a-community', 'title': 'These Four Rising Stylists Are Fostering a Community in NYC', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "Sarah Spellings\n",
-      "{'link': 'https://www.vogue.com/article/lena-dunham-wedding-dress', 'title': 'The Story Behind Lena Dunham’s 3 Wedding Gowns', 'author': 'Sarah Spellings', 'date': 'September 29, 2021', 'time': None}\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Alice Newbold\n",
-      "{'link': 'https://www.vogue.com/article/naomie-harris-no-time-to-die', 'title': '“It Makes Me Feel Like A Million Dollars”: Naomie Harris On Her Memorable Michael Kors 007 Premiere Look', 'author': 'Alice Newbold', 'date': 'September 29, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-stylist-lorenzo-posocco', 'title': 'Dua Lipa’s Stylist Gave Me a Vintage Makeover', 'author': 'Liana Satenstein', 'date': 'September 29, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/milan-fashion-week-street-style-fall-sandals', 'title': 'Milan’s Street Style Stars Prove Sandal Season Isn’t Over (Yet)', 'author': 'Madeline Fass', 'date': 'September 27, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/london-fashion-week-street-style-prints-outfits', 'title': 'In London, Showgoers Share the Proper Way to Style Statement-Making Prints', 'author': 'Madeline Fass', 'date': 'September 21, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/new-york-fashion-week-street-style-shopping-spring-2022', 'title': 'Nobody Wears Black Better Than New Yorkers: Shop Their Fashion Week Looks', 'author': 'Madeline Fass', 'date': 'September 15, 2021', 'time': None}\n",
-      "Monica Mendal\n",
-      "{'link': 'https://www.vogue.com/article/t-shirt-outfits', 'title': 'The Best T-Shirt and Trouser Pairings for This Season’s Most Laidback Trend', 'author': 'Monica Mendal', 'date': 'October 3, 2021', 'time': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/what-i-wore-this-week-julie-tong', 'title': 'How One Vogue Editor Gets Dressed for a Fall Getaway Upstate', 'author': 'Julie Tong', 'date': 'October 2, 2021', 'time': None}\n",
-      "Lilah Ramzi\n",
-      "{'link': 'https://www.vogue.com/article/black-tie-attire', 'title': 'Is It a Skirt? Is It a Pant? Either Way, It’s the Only Thing I Want to Wear to Black Tie Events', 'author': 'Lilah Ramzi', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/rihanna-mini-skirt-fall-trend', 'title': 'Rihanna Gives the Mini Skirt a Playful Twist', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/angelina-jolie-variety-power-of-women-harithand-gown', 'title': 'Angelina Jolie Just Introduced the Next Great Red Carpet Label', 'author': 'Janelle Okwodu', 'date': 'October 1, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/eve-jobs-runway-debut-coperni-spring-2022', 'title': 'Eve Jobs Just Made Her Paris Fashion Week Debut', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/pattie-gonia-tiktok-drag-queen-environmentalism', 'title': 'Pattie Gonia Is the Drag Queen Bringing Environmentalism to TikTok', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Steff Yotka\n",
-      "{'link': 'https://www.vogue.com/article/charlotte-gainsbourg-zara-denim-collection', 'title': 'Charlotte Gainsbourg Creates Her Essential Wardrobe From Jeans to Tees for Zara', 'author': 'Steff Yotka', 'date': 'October 2, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/best-fashion-instagrams-kerwin-frost-cardi-b-shalom-harlow', 'title': 'Best Fashion Instagrams of the Week: Cardi B, Milla Jovovich, Shalom Harlow, and More', 'author': 'Liana Satenstein', 'date': 'October 2, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/balenciaga-handbags', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/loewe-handbags', 'title': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cute-maternity-dresses', 'title': '20 Maternity Dresses to Consider Wearing This Fall, Courtesy of Rosie Huntington-Whiteley and More Expectant Celebs', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/october-2021-dresses-to-shop-now', 'title': 'October Is Here– 15 Delightful Dresses to Shop this Month', 'author': 'Madeline Fass', 'date': 'October 1, 2021', 'time': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cool-things-to-buy-editor-purchases-september-2021', 'title': 'From Viral Bottega Veneta Boots to Designer Collabs, 28 Items Vogue Editors Purchased (and Loved) in September', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Rachel Besser\n",
-      "{'link': 'https://www.vogue.com/article/best-golf-clothes-for-women', 'title': 'You’ll Want to Sport This Golf Gear On and Off the Course', 'author': 'Rachel Besser', 'date': 'October 1, 2021', 'time': None}\n",
-      "Liam Hess\n",
-      "{'link': 'https://www.vogue.com/article/izaak-adu-watts-savage-x-fenty-model-interview', 'title': 'Meet Izaak Adu-Watts, the Breakout Model From Rihanna’s Savage x Fenty Show', 'author': 'Liam Hess', 'date': 'October 1, 2021', 'time': None}\n",
-      "Shelli Nicole\n",
-      "{'link': 'https://www.vogue.com/article/hilary-banks-style', 'title': 'An Ode to Hilary Banks—The Bougie Big Sister of My Dreams', 'author': 'Shelli Nicole', 'date': 'October 1, 2021', 'time': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/net-a-porter-reflaunt-new-resale-platform', 'title': 'Net-a-Porter Is Launching a Resale Pilot Program With Reflaunt', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/fall-skirts', 'title': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/best-white-t-shirts-for-women', 'title': '32 Vogue Editors Share the Best White T-Shirts', 'author': 'Julie Tong', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/bold-printed-blazer-fall-trend', 'title': 'Why the Bold, Printed Blazer Is My New Fall Staple', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/street-style-bags-fall-winter-2021', 'title': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/california-sb-62-garment-worker-protection-act', 'title': 'California Just Passed a Landmark Bill to Protect Garment Workers—Here’s What It Means for the Entire Fashion Industry', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/dakota-johnson-gucci-bustier-the-lost-daughter-premiere', 'title': 'Dakota Johnson’s Latest Look Shows the Other Side of Gucci', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Laird Borrelli-Persson\n",
-      "{'link': 'https://www.vogue.com/article/chloe-handbags', 'title': 'From the Paddington to the Marcie, a History of Chloé Handbags', 'author': 'Laird Borrelli-Persson', 'date': 'September 30, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-wired-earphones', 'title': 'Dua Lipa Artfully Accessorizes With Wired Headphones', 'author': 'Liana Satenstein', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/bridal-face-masks', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/best-wedding-guest-dresses', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/cardi-b-schiaparelli-surrealism-paris-fashion-week', 'title': 'Cardi B Brings Schiaparelli’s Surrealism to the Streets', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/kate-middleton-bright-suit-emilia-wickstead', 'title': 'Kate Middleton Is Bringing Bright Suits Into Fall', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/new-arrivals-sept-28-2021', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/new-york-city-stylists-fostering-a-community', 'title': 'These Four Rising Stylists Are Fostering a Community in NYC', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "Sarah Spellings\n",
-      "{'link': 'https://www.vogue.com/article/lena-dunham-wedding-dress', 'title': 'The Story Behind Lena Dunham’s 3 Wedding Gowns', 'author': 'Sarah Spellings', 'date': 'September 29, 2021', 'time': None}\n",
-      "Alice Newbold\n",
-      "{'link': 'https://www.vogue.com/article/naomie-harris-no-time-to-die', 'title': '“It Makes Me Feel Like A Million Dollars”: Naomie Harris On Her Memorable Michael Kors 007 Premiere Look', 'author': 'Alice Newbold', 'date': 'September 29, 2021', 'time': None}\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-stylist-lorenzo-posocco', 'title': 'Dua Lipa’s Stylist Gave Me a Vintage Makeover', 'author': 'Liana Satenstein', 'date': 'September 29, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/milan-fashion-week-street-style-fall-sandals', 'title': 'Milan’s Street Style Stars Prove Sandal Season Isn’t Over (Yet)', 'author': 'Madeline Fass', 'date': 'September 27, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/london-fashion-week-street-style-prints-outfits', 'title': 'In London, Showgoers Share the Proper Way to Style Statement-Making Prints', 'author': 'Madeline Fass', 'date': 'September 21, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/new-york-fashion-week-street-style-shopping-spring-2022', 'title': 'Nobody Wears Black Better Than New Yorkers: Shop Their Fashion Week Looks', 'author': 'Madeline Fass', 'date': 'September 15, 2021', 'time': None}\n",
-      "Monica Mendal\n",
-      "{'link': 'https://www.vogue.com/article/t-shirt-outfits', 'title': 'The Best T-Shirt and Trouser Pairings for This Season’s Most Laidback Trend', 'author': 'Monica Mendal', 'date': 'October 3, 2021', 'time': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/what-i-wore-this-week-julie-tong', 'title': 'How One Vogue Editor Gets Dressed for a Fall Getaway Upstate', 'author': 'Julie Tong', 'date': 'October 2, 2021', 'time': None}\n",
-      "Lilah Ramzi\n",
-      "{'link': 'https://www.vogue.com/article/black-tie-attire', 'title': 'Is It a Skirt? Is It a Pant? Either Way, It’s the Only Thing I Want to Wear to Black Tie Events', 'author': 'Lilah Ramzi', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/rihanna-mini-skirt-fall-trend', 'title': 'Rihanna Gives the Mini Skirt a Playful Twist', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/angelina-jolie-variety-power-of-women-harithand-gown', 'title': 'Angelina Jolie Just Introduced the Next Great Red Carpet Label', 'author': 'Janelle Okwodu', 'date': 'October 1, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/eve-jobs-runway-debut-coperni-spring-2022', 'title': 'Eve Jobs Just Made Her Paris Fashion Week Debut', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/pattie-gonia-tiktok-drag-queen-environmentalism', 'title': 'Pattie Gonia Is the Drag Queen Bringing Environmentalism to TikTok', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Steff Yotka\n",
-      "{'link': 'https://www.vogue.com/article/charlotte-gainsbourg-zara-denim-collection', 'title': 'Charlotte Gainsbourg Creates Her Essential Wardrobe From Jeans to Tees for Zara', 'author': 'Steff Yotka', 'date': 'October 2, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/best-fashion-instagrams-kerwin-frost-cardi-b-shalom-harlow', 'title': 'Best Fashion Instagrams of the Week: Cardi B, Milla Jovovich, Shalom Harlow, and More', 'author': 'Liana Satenstein', 'date': 'October 2, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/balenciaga-handbags', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/loewe-handbags', 'title': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cute-maternity-dresses', 'title': '20 Maternity Dresses to Consider Wearing This Fall, Courtesy of Rosie Huntington-Whiteley and More Expectant Celebs', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/october-2021-dresses-to-shop-now', 'title': 'October Is Here– 15 Delightful Dresses to Shop this Month', 'author': 'Madeline Fass', 'date': 'October 1, 2021', 'time': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cool-things-to-buy-editor-purchases-september-2021', 'title': 'From Viral Bottega Veneta Boots to Designer Collabs, 28 Items Vogue Editors Purchased (and Loved) in September', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Rachel Besser\n",
-      "{'link': 'https://www.vogue.com/article/best-golf-clothes-for-women', 'title': 'You’ll Want to Sport This Golf Gear On and Off the Course', 'author': 'Rachel Besser', 'date': 'October 1, 2021', 'time': None}\n",
-      "Liam Hess\n",
-      "{'link': 'https://www.vogue.com/article/izaak-adu-watts-savage-x-fenty-model-interview', 'title': 'Meet Izaak Adu-Watts, the Breakout Model From Rihanna’s Savage x Fenty Show', 'author': 'Liam Hess', 'date': 'October 1, 2021', 'time': None}\n",
-      "Shelli Nicole\n",
-      "{'link': 'https://www.vogue.com/article/hilary-banks-style', 'title': 'An Ode to Hilary Banks—The Bougie Big Sister of My Dreams', 'author': 'Shelli Nicole', 'date': 'October 1, 2021', 'time': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/net-a-porter-reflaunt-new-resale-platform', 'title': 'Net-a-Porter Is Launching a Resale Pilot Program With Reflaunt', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/fall-skirts', 'title': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/best-white-t-shirts-for-women', 'title': '32 Vogue Editors Share the Best White T-Shirts', 'author': 'Julie Tong', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/bold-printed-blazer-fall-trend', 'title': 'Why the Bold, Printed Blazer Is My New Fall Staple', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/street-style-bags-fall-winter-2021', 'title': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/california-sb-62-garment-worker-protection-act', 'title': 'California Just Passed a Landmark Bill to Protect Garment Workers—Here’s What It Means for the Entire Fashion Industry', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/dakota-johnson-gucci-bustier-the-lost-daughter-premiere', 'title': 'Dakota Johnson’s Latest Look Shows the Other Side of Gucci', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Laird Borrelli-Persson\n",
-      "{'link': 'https://www.vogue.com/article/chloe-handbags', 'title': 'From the Paddington to the Marcie, a History of Chloé Handbags', 'author': 'Laird Borrelli-Persson', 'date': 'September 30, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-wired-earphones', 'title': 'Dua Lipa Artfully Accessorizes With Wired Headphones', 'author': 'Liana Satenstein', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/bridal-face-masks', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/best-wedding-guest-dresses', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/cardi-b-schiaparelli-surrealism-paris-fashion-week', 'title': 'Cardi B Brings Schiaparelli’s Surrealism to the Streets', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/kate-middleton-bright-suit-emilia-wickstead', 'title': 'Kate Middleton Is Bringing Bright Suits Into Fall', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/new-arrivals-sept-28-2021', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/new-york-city-stylists-fostering-a-community', 'title': 'These Four Rising Stylists Are Fostering a Community in NYC', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "Sarah Spellings\n",
-      "{'link': 'https://www.vogue.com/article/lena-dunham-wedding-dress', 'title': 'The Story Behind Lena Dunham’s 3 Wedding Gowns', 'author': 'Sarah Spellings', 'date': 'September 29, 2021', 'time': None}\n",
-      "Alice Newbold\n",
-      "{'link': 'https://www.vogue.com/article/naomie-harris-no-time-to-die', 'title': '“It Makes Me Feel Like A Million Dollars”: Naomie Harris On Her Memorable Michael Kors 007 Premiere Look', 'author': 'Alice Newbold', 'date': 'September 29, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-stylist-lorenzo-posocco', 'title': 'Dua Lipa’s Stylist Gave Me a Vintage Makeover', 'author': 'Liana Satenstein', 'date': 'September 29, 2021', 'time': None}\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/milan-fashion-week-street-style-fall-sandals', 'title': 'Milan’s Street Style Stars Prove Sandal Season Isn’t Over (Yet)', 'author': 'Madeline Fass', 'date': 'September 27, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/london-fashion-week-street-style-prints-outfits', 'title': 'In London, Showgoers Share the Proper Way to Style Statement-Making Prints', 'author': 'Madeline Fass', 'date': 'September 21, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/new-york-fashion-week-street-style-shopping-spring-2022', 'title': 'Nobody Wears Black Better Than New Yorkers: Shop Their Fashion Week Looks', 'author': 'Madeline Fass', 'date': 'September 15, 2021', 'time': None}\n",
-      "Monica Mendal\n",
-      "{'link': 'https://www.vogue.com/article/t-shirt-outfits', 'title': 'The Best T-Shirt and Trouser Pairings for This Season’s Most Laidback Trend', 'author': 'Monica Mendal', 'date': 'October 3, 2021', 'time': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/what-i-wore-this-week-julie-tong', 'title': 'How One Vogue Editor Gets Dressed for a Fall Getaway Upstate', 'author': 'Julie Tong', 'date': 'October 2, 2021', 'time': None}\n",
-      "Lilah Ramzi\n",
-      "{'link': 'https://www.vogue.com/article/black-tie-attire', 'title': 'Is It a Skirt? Is It a Pant? Either Way, It’s the Only Thing I Want to Wear to Black Tie Events', 'author': 'Lilah Ramzi', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/rihanna-mini-skirt-fall-trend', 'title': 'Rihanna Gives the Mini Skirt a Playful Twist', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/angelina-jolie-variety-power-of-women-harithand-gown', 'title': 'Angelina Jolie Just Introduced the Next Great Red Carpet Label', 'author': 'Janelle Okwodu', 'date': 'October 1, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/eve-jobs-runway-debut-coperni-spring-2022', 'title': 'Eve Jobs Just Made Her Paris Fashion Week Debut', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/pattie-gonia-tiktok-drag-queen-environmentalism', 'title': 'Pattie Gonia Is the Drag Queen Bringing Environmentalism to TikTok', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Steff Yotka\n",
-      "{'link': 'https://www.vogue.com/article/charlotte-gainsbourg-zara-denim-collection', 'title': 'Charlotte Gainsbourg Creates Her Essential Wardrobe From Jeans to Tees for Zara', 'author': 'Steff Yotka', 'date': 'October 2, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/best-fashion-instagrams-kerwin-frost-cardi-b-shalom-harlow', 'title': 'Best Fashion Instagrams of the Week: Cardi B, Milla Jovovich, Shalom Harlow, and More', 'author': 'Liana Satenstein', 'date': 'October 2, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/balenciaga-handbags', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/loewe-handbags', 'title': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cute-maternity-dresses', 'title': '20 Maternity Dresses to Consider Wearing This Fall, Courtesy of Rosie Huntington-Whiteley and More Expectant Celebs', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/october-2021-dresses-to-shop-now', 'title': 'October Is Here– 15 Delightful Dresses to Shop this Month', 'author': 'Madeline Fass', 'date': 'October 1, 2021', 'time': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cool-things-to-buy-editor-purchases-september-2021', 'title': 'From Viral Bottega Veneta Boots to Designer Collabs, 28 Items Vogue Editors Purchased (and Loved) in September', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Rachel Besser\n",
-      "{'link': 'https://www.vogue.com/article/best-golf-clothes-for-women', 'title': 'You’ll Want to Sport This Golf Gear On and Off the Course', 'author': 'Rachel Besser', 'date': 'October 1, 2021', 'time': None}\n",
-      "Liam Hess\n",
-      "{'link': 'https://www.vogue.com/article/izaak-adu-watts-savage-x-fenty-model-interview', 'title': 'Meet Izaak Adu-Watts, the Breakout Model From Rihanna’s Savage x Fenty Show', 'author': 'Liam Hess', 'date': 'October 1, 2021', 'time': None}\n",
-      "Shelli Nicole\n",
-      "{'link': 'https://www.vogue.com/article/hilary-banks-style', 'title': 'An Ode to Hilary Banks—The Bougie Big Sister of My Dreams', 'author': 'Shelli Nicole', 'date': 'October 1, 2021', 'time': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/net-a-porter-reflaunt-new-resale-platform', 'title': 'Net-a-Porter Is Launching a Resale Pilot Program With Reflaunt', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/fall-skirts', 'title': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/best-white-t-shirts-for-women', 'title': '32 Vogue Editors Share the Best White T-Shirts', 'author': 'Julie Tong', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/bold-printed-blazer-fall-trend', 'title': 'Why the Bold, Printed Blazer Is My New Fall Staple', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/street-style-bags-fall-winter-2021', 'title': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/california-sb-62-garment-worker-protection-act', 'title': 'California Just Passed a Landmark Bill to Protect Garment Workers—Here’s What It Means for the Entire Fashion Industry', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/dakota-johnson-gucci-bustier-the-lost-daughter-premiere', 'title': 'Dakota Johnson’s Latest Look Shows the Other Side of Gucci', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Laird Borrelli-Persson\n",
-      "{'link': 'https://www.vogue.com/article/chloe-handbags', 'title': 'From the Paddington to the Marcie, a History of Chloé Handbags', 'author': 'Laird Borrelli-Persson', 'date': 'September 30, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-wired-earphones', 'title': 'Dua Lipa Artfully Accessorizes With Wired Headphones', 'author': 'Liana Satenstein', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/bridal-face-masks', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/best-wedding-guest-dresses', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/cardi-b-schiaparelli-surrealism-paris-fashion-week', 'title': 'Cardi B Brings Schiaparelli’s Surrealism to the Streets', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/kate-middleton-bright-suit-emilia-wickstead', 'title': 'Kate Middleton Is Bringing Bright Suits Into Fall', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/new-arrivals-sept-28-2021', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/new-york-city-stylists-fostering-a-community', 'title': 'These Four Rising Stylists Are Fostering a Community in NYC', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "Sarah Spellings\n",
-      "{'link': 'https://www.vogue.com/article/lena-dunham-wedding-dress', 'title': 'The Story Behind Lena Dunham’s 3 Wedding Gowns', 'author': 'Sarah Spellings', 'date': 'September 29, 2021', 'time': None}\n",
-      "Alice Newbold\n",
-      "{'link': 'https://www.vogue.com/article/naomie-harris-no-time-to-die', 'title': '“It Makes Me Feel Like A Million Dollars”: Naomie Harris On Her Memorable Michael Kors 007 Premiere Look', 'author': 'Alice Newbold', 'date': 'September 29, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-stylist-lorenzo-posocco', 'title': 'Dua Lipa’s Stylist Gave Me a Vintage Makeover', 'author': 'Liana Satenstein', 'date': 'September 29, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/milan-fashion-week-street-style-fall-sandals', 'title': 'Milan’s Street Style Stars Prove Sandal Season Isn’t Over (Yet)', 'author': 'Madeline Fass', 'date': 'September 27, 2021', 'time': None}\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/london-fashion-week-street-style-prints-outfits', 'title': 'In London, Showgoers Share the Proper Way to Style Statement-Making Prints', 'author': 'Madeline Fass', 'date': 'September 21, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/new-york-fashion-week-street-style-shopping-spring-2022', 'title': 'Nobody Wears Black Better Than New Yorkers: Shop Their Fashion Week Looks', 'author': 'Madeline Fass', 'date': 'September 15, 2021', 'time': None}\n",
-      "Monica Mendal\n",
-      "{'link': 'https://www.vogue.com/article/t-shirt-outfits', 'title': 'The Best T-Shirt and Trouser Pairings for This Season’s Most Laidback Trend', 'author': 'Monica Mendal', 'date': 'October 3, 2021', 'time': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/what-i-wore-this-week-julie-tong', 'title': 'How One Vogue Editor Gets Dressed for a Fall Getaway Upstate', 'author': 'Julie Tong', 'date': 'October 2, 2021', 'time': None}\n",
-      "Lilah Ramzi\n",
-      "{'link': 'https://www.vogue.com/article/black-tie-attire', 'title': 'Is It a Skirt? Is It a Pant? Either Way, It’s the Only Thing I Want to Wear to Black Tie Events', 'author': 'Lilah Ramzi', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/rihanna-mini-skirt-fall-trend', 'title': 'Rihanna Gives the Mini Skirt a Playful Twist', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/angelina-jolie-variety-power-of-women-harithand-gown', 'title': 'Angelina Jolie Just Introduced the Next Great Red Carpet Label', 'author': 'Janelle Okwodu', 'date': 'October 1, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/eve-jobs-runway-debut-coperni-spring-2022', 'title': 'Eve Jobs Just Made Her Paris Fashion Week Debut', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/pattie-gonia-tiktok-drag-queen-environmentalism', 'title': 'Pattie Gonia Is the Drag Queen Bringing Environmentalism to TikTok', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Steff Yotka\n",
-      "{'link': 'https://www.vogue.com/article/charlotte-gainsbourg-zara-denim-collection', 'title': 'Charlotte Gainsbourg Creates Her Essential Wardrobe From Jeans to Tees for Zara', 'author': 'Steff Yotka', 'date': 'October 2, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/best-fashion-instagrams-kerwin-frost-cardi-b-shalom-harlow', 'title': 'Best Fashion Instagrams of the Week: Cardi B, Milla Jovovich, Shalom Harlow, and More', 'author': 'Liana Satenstein', 'date': 'October 2, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/balenciaga-handbags', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/loewe-handbags', 'title': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cute-maternity-dresses', 'title': '20 Maternity Dresses to Consider Wearing This Fall, Courtesy of Rosie Huntington-Whiteley and More Expectant Celebs', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/october-2021-dresses-to-shop-now', 'title': 'October Is Here– 15 Delightful Dresses to Shop this Month', 'author': 'Madeline Fass', 'date': 'October 1, 2021', 'time': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cool-things-to-buy-editor-purchases-september-2021', 'title': 'From Viral Bottega Veneta Boots to Designer Collabs, 28 Items Vogue Editors Purchased (and Loved) in September', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Rachel Besser\n",
-      "{'link': 'https://www.vogue.com/article/best-golf-clothes-for-women', 'title': 'You’ll Want to Sport This Golf Gear On and Off the Course', 'author': 'Rachel Besser', 'date': 'October 1, 2021', 'time': None}\n",
-      "Liam Hess\n",
-      "{'link': 'https://www.vogue.com/article/izaak-adu-watts-savage-x-fenty-model-interview', 'title': 'Meet Izaak Adu-Watts, the Breakout Model From Rihanna’s Savage x Fenty Show', 'author': 'Liam Hess', 'date': 'October 1, 2021', 'time': None}\n",
-      "Shelli Nicole\n",
-      "{'link': 'https://www.vogue.com/article/hilary-banks-style', 'title': 'An Ode to Hilary Banks—The Bougie Big Sister of My Dreams', 'author': 'Shelli Nicole', 'date': 'October 1, 2021', 'time': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/net-a-porter-reflaunt-new-resale-platform', 'title': 'Net-a-Porter Is Launching a Resale Pilot Program With Reflaunt', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/fall-skirts', 'title': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/best-white-t-shirts-for-women', 'title': '32 Vogue Editors Share the Best White T-Shirts', 'author': 'Julie Tong', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/bold-printed-blazer-fall-trend', 'title': 'Why the Bold, Printed Blazer Is My New Fall Staple', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/street-style-bags-fall-winter-2021', 'title': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/california-sb-62-garment-worker-protection-act', 'title': 'California Just Passed a Landmark Bill to Protect Garment Workers—Here’s What It Means for the Entire Fashion Industry', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/dakota-johnson-gucci-bustier-the-lost-daughter-premiere', 'title': 'Dakota Johnson’s Latest Look Shows the Other Side of Gucci', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Laird Borrelli-Persson\n",
-      "{'link': 'https://www.vogue.com/article/chloe-handbags', 'title': 'From the Paddington to the Marcie, a History of Chloé Handbags', 'author': 'Laird Borrelli-Persson', 'date': 'September 30, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-wired-earphones', 'title': 'Dua Lipa Artfully Accessorizes With Wired Headphones', 'author': 'Liana Satenstein', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/bridal-face-masks', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/best-wedding-guest-dresses', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/cardi-b-schiaparelli-surrealism-paris-fashion-week', 'title': 'Cardi B Brings Schiaparelli’s Surrealism to the Streets', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/kate-middleton-bright-suit-emilia-wickstead', 'title': 'Kate Middleton Is Bringing Bright Suits Into Fall', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/new-arrivals-sept-28-2021', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/new-york-city-stylists-fostering-a-community', 'title': 'These Four Rising Stylists Are Fostering a Community in NYC', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "Sarah Spellings\n",
-      "{'link': 'https://www.vogue.com/article/lena-dunham-wedding-dress', 'title': 'The Story Behind Lena Dunham’s 3 Wedding Gowns', 'author': 'Sarah Spellings', 'date': 'September 29, 2021', 'time': None}\n",
-      "Alice Newbold\n",
-      "{'link': 'https://www.vogue.com/article/naomie-harris-no-time-to-die', 'title': '“It Makes Me Feel Like A Million Dollars”: Naomie Harris On Her Memorable Michael Kors 007 Premiere Look', 'author': 'Alice Newbold', 'date': 'September 29, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-stylist-lorenzo-posocco', 'title': 'Dua Lipa’s Stylist Gave Me a Vintage Makeover', 'author': 'Liana Satenstein', 'date': 'September 29, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/milan-fashion-week-street-style-fall-sandals', 'title': 'Milan’s Street Style Stars Prove Sandal Season Isn’t Over (Yet)', 'author': 'Madeline Fass', 'date': 'September 27, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/london-fashion-week-street-style-prints-outfits', 'title': 'In London, Showgoers Share the Proper Way to Style Statement-Making Prints', 'author': 'Madeline Fass', 'date': 'September 21, 2021', 'time': None}\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/new-york-fashion-week-street-style-shopping-spring-2022', 'title': 'Nobody Wears Black Better Than New Yorkers: Shop Their Fashion Week Looks', 'author': 'Madeline Fass', 'date': 'September 15, 2021', 'time': None}\n",
-      "Monica Mendal\n",
-      "{'link': 'https://www.vogue.com/article/t-shirt-outfits', 'title': 'The Best T-Shirt and Trouser Pairings for This Season’s Most Laidback Trend', 'author': 'Monica Mendal', 'date': 'October 3, 2021', 'time': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/what-i-wore-this-week-julie-tong', 'title': 'How One Vogue Editor Gets Dressed for a Fall Getaway Upstate', 'author': 'Julie Tong', 'date': 'October 2, 2021', 'time': None}\n",
-      "Lilah Ramzi\n",
-      "{'link': 'https://www.vogue.com/article/black-tie-attire', 'title': 'Is It a Skirt? Is It a Pant? Either Way, It’s the Only Thing I Want to Wear to Black Tie Events', 'author': 'Lilah Ramzi', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/rihanna-mini-skirt-fall-trend', 'title': 'Rihanna Gives the Mini Skirt a Playful Twist', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/angelina-jolie-variety-power-of-women-harithand-gown', 'title': 'Angelina Jolie Just Introduced the Next Great Red Carpet Label', 'author': 'Janelle Okwodu', 'date': 'October 1, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/eve-jobs-runway-debut-coperni-spring-2022', 'title': 'Eve Jobs Just Made Her Paris Fashion Week Debut', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/pattie-gonia-tiktok-drag-queen-environmentalism', 'title': 'Pattie Gonia Is the Drag Queen Bringing Environmentalism to TikTok', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Steff Yotka\n",
-      "{'link': 'https://www.vogue.com/article/charlotte-gainsbourg-zara-denim-collection', 'title': 'Charlotte Gainsbourg Creates Her Essential Wardrobe From Jeans to Tees for Zara', 'author': 'Steff Yotka', 'date': 'October 2, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/best-fashion-instagrams-kerwin-frost-cardi-b-shalom-harlow', 'title': 'Best Fashion Instagrams of the Week: Cardi B, Milla Jovovich, Shalom Harlow, and More', 'author': 'Liana Satenstein', 'date': 'October 2, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/balenciaga-handbags', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/loewe-handbags', 'title': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cute-maternity-dresses', 'title': '20 Maternity Dresses to Consider Wearing This Fall, Courtesy of Rosie Huntington-Whiteley and More Expectant Celebs', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/october-2021-dresses-to-shop-now', 'title': 'October Is Here– 15 Delightful Dresses to Shop this Month', 'author': 'Madeline Fass', 'date': 'October 1, 2021', 'time': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cool-things-to-buy-editor-purchases-september-2021', 'title': 'From Viral Bottega Veneta Boots to Designer Collabs, 28 Items Vogue Editors Purchased (and Loved) in September', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Rachel Besser\n",
-      "{'link': 'https://www.vogue.com/article/best-golf-clothes-for-women', 'title': 'You’ll Want to Sport This Golf Gear On and Off the Course', 'author': 'Rachel Besser', 'date': 'October 1, 2021', 'time': None}\n",
-      "Liam Hess\n",
-      "{'link': 'https://www.vogue.com/article/izaak-adu-watts-savage-x-fenty-model-interview', 'title': 'Meet Izaak Adu-Watts, the Breakout Model From Rihanna’s Savage x Fenty Show', 'author': 'Liam Hess', 'date': 'October 1, 2021', 'time': None}\n",
-      "Shelli Nicole\n",
-      "{'link': 'https://www.vogue.com/article/hilary-banks-style', 'title': 'An Ode to Hilary Banks—The Bougie Big Sister of My Dreams', 'author': 'Shelli Nicole', 'date': 'October 1, 2021', 'time': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/net-a-porter-reflaunt-new-resale-platform', 'title': 'Net-a-Porter Is Launching a Resale Pilot Program With Reflaunt', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/fall-skirts', 'title': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/best-white-t-shirts-for-women', 'title': '32 Vogue Editors Share the Best White T-Shirts', 'author': 'Julie Tong', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/bold-printed-blazer-fall-trend', 'title': 'Why the Bold, Printed Blazer Is My New Fall Staple', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/street-style-bags-fall-winter-2021', 'title': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/california-sb-62-garment-worker-protection-act', 'title': 'California Just Passed a Landmark Bill to Protect Garment Workers—Here’s What It Means for the Entire Fashion Industry', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/dakota-johnson-gucci-bustier-the-lost-daughter-premiere', 'title': 'Dakota Johnson’s Latest Look Shows the Other Side of Gucci', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Laird Borrelli-Persson\n",
-      "{'link': 'https://www.vogue.com/article/chloe-handbags', 'title': 'From the Paddington to the Marcie, a History of Chloé Handbags', 'author': 'Laird Borrelli-Persson', 'date': 'September 30, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-wired-earphones', 'title': 'Dua Lipa Artfully Accessorizes With Wired Headphones', 'author': 'Liana Satenstein', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/bridal-face-masks', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/best-wedding-guest-dresses', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/cardi-b-schiaparelli-surrealism-paris-fashion-week', 'title': 'Cardi B Brings Schiaparelli’s Surrealism to the Streets', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/kate-middleton-bright-suit-emilia-wickstead', 'title': 'Kate Middleton Is Bringing Bright Suits Into Fall', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/new-arrivals-sept-28-2021', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/new-york-city-stylists-fostering-a-community', 'title': 'These Four Rising Stylists Are Fostering a Community in NYC', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "Sarah Spellings\n",
-      "{'link': 'https://www.vogue.com/article/lena-dunham-wedding-dress', 'title': 'The Story Behind Lena Dunham’s 3 Wedding Gowns', 'author': 'Sarah Spellings', 'date': 'September 29, 2021', 'time': None}\n",
-      "Alice Newbold\n",
-      "{'link': 'https://www.vogue.com/article/naomie-harris-no-time-to-die', 'title': '“It Makes Me Feel Like A Million Dollars”: Naomie Harris On Her Memorable Michael Kors 007 Premiere Look', 'author': 'Alice Newbold', 'date': 'September 29, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-stylist-lorenzo-posocco', 'title': 'Dua Lipa’s Stylist Gave Me a Vintage Makeover', 'author': 'Liana Satenstein', 'date': 'September 29, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/milan-fashion-week-street-style-fall-sandals', 'title': 'Milan’s Street Style Stars Prove Sandal Season Isn’t Over (Yet)', 'author': 'Madeline Fass', 'date': 'September 27, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/london-fashion-week-street-style-prints-outfits', 'title': 'In London, Showgoers Share the Proper Way to Style Statement-Making Prints', 'author': 'Madeline Fass', 'date': 'September 21, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/new-york-fashion-week-street-style-shopping-spring-2022', 'title': 'Nobody Wears Black Better Than New Yorkers: Shop Their Fashion Week Looks', 'author': 'Madeline Fass', 'date': 'September 15, 2021', 'time': None}\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Monica Mendal\n",
-      "{'link': 'https://www.vogue.com/article/t-shirt-outfits', 'title': 'The Best T-Shirt and Trouser Pairings for This Season’s Most Laidback Trend', 'author': 'Monica Mendal', 'date': 'October 3, 2021', 'time': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/what-i-wore-this-week-julie-tong', 'title': 'How One Vogue Editor Gets Dressed for a Fall Getaway Upstate', 'author': 'Julie Tong', 'date': 'October 2, 2021', 'time': None}\n",
-      "Lilah Ramzi\n",
-      "{'link': 'https://www.vogue.com/article/black-tie-attire', 'title': 'Is It a Skirt? Is It a Pant? Either Way, It’s the Only Thing I Want to Wear to Black Tie Events', 'author': 'Lilah Ramzi', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/rihanna-mini-skirt-fall-trend', 'title': 'Rihanna Gives the Mini Skirt a Playful Twist', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/angelina-jolie-variety-power-of-women-harithand-gown', 'title': 'Angelina Jolie Just Introduced the Next Great Red Carpet Label', 'author': 'Janelle Okwodu', 'date': 'October 1, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/eve-jobs-runway-debut-coperni-spring-2022', 'title': 'Eve Jobs Just Made Her Paris Fashion Week Debut', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/pattie-gonia-tiktok-drag-queen-environmentalism', 'title': 'Pattie Gonia Is the Drag Queen Bringing Environmentalism to TikTok', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Steff Yotka\n",
-      "{'link': 'https://www.vogue.com/article/charlotte-gainsbourg-zara-denim-collection', 'title': 'Charlotte Gainsbourg Creates Her Essential Wardrobe From Jeans to Tees for Zara', 'author': 'Steff Yotka', 'date': 'October 2, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/best-fashion-instagrams-kerwin-frost-cardi-b-shalom-harlow', 'title': 'Best Fashion Instagrams of the Week: Cardi B, Milla Jovovich, Shalom Harlow, and More', 'author': 'Liana Satenstein', 'date': 'October 2, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/balenciaga-handbags', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/loewe-handbags', 'title': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cute-maternity-dresses', 'title': '20 Maternity Dresses to Consider Wearing This Fall, Courtesy of Rosie Huntington-Whiteley and More Expectant Celebs', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/october-2021-dresses-to-shop-now', 'title': 'October Is Here– 15 Delightful Dresses to Shop this Month', 'author': 'Madeline Fass', 'date': 'October 1, 2021', 'time': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cool-things-to-buy-editor-purchases-september-2021', 'title': 'From Viral Bottega Veneta Boots to Designer Collabs, 28 Items Vogue Editors Purchased (and Loved) in September', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Rachel Besser\n",
-      "{'link': 'https://www.vogue.com/article/best-golf-clothes-for-women', 'title': 'You’ll Want to Sport This Golf Gear On and Off the Course', 'author': 'Rachel Besser', 'date': 'October 1, 2021', 'time': None}\n",
-      "Liam Hess\n",
-      "{'link': 'https://www.vogue.com/article/izaak-adu-watts-savage-x-fenty-model-interview', 'title': 'Meet Izaak Adu-Watts, the Breakout Model From Rihanna’s Savage x Fenty Show', 'author': 'Liam Hess', 'date': 'October 1, 2021', 'time': None}\n",
-      "Shelli Nicole\n",
-      "{'link': 'https://www.vogue.com/article/hilary-banks-style', 'title': 'An Ode to Hilary Banks—The Bougie Big Sister of My Dreams', 'author': 'Shelli Nicole', 'date': 'October 1, 2021', 'time': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/net-a-porter-reflaunt-new-resale-platform', 'title': 'Net-a-Porter Is Launching a Resale Pilot Program With Reflaunt', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/fall-skirts', 'title': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/best-white-t-shirts-for-women', 'title': '32 Vogue Editors Share the Best White T-Shirts', 'author': 'Julie Tong', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/bold-printed-blazer-fall-trend', 'title': 'Why the Bold, Printed Blazer Is My New Fall Staple', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/street-style-bags-fall-winter-2021', 'title': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/california-sb-62-garment-worker-protection-act', 'title': 'California Just Passed a Landmark Bill to Protect Garment Workers—Here’s What It Means for the Entire Fashion Industry', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/dakota-johnson-gucci-bustier-the-lost-daughter-premiere', 'title': 'Dakota Johnson’s Latest Look Shows the Other Side of Gucci', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Laird Borrelli-Persson\n",
-      "{'link': 'https://www.vogue.com/article/chloe-handbags', 'title': 'From the Paddington to the Marcie, a History of Chloé Handbags', 'author': 'Laird Borrelli-Persson', 'date': 'September 30, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-wired-earphones', 'title': 'Dua Lipa Artfully Accessorizes With Wired Headphones', 'author': 'Liana Satenstein', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/bridal-face-masks', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/best-wedding-guest-dresses', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/cardi-b-schiaparelli-surrealism-paris-fashion-week', 'title': 'Cardi B Brings Schiaparelli’s Surrealism to the Streets', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/kate-middleton-bright-suit-emilia-wickstead', 'title': 'Kate Middleton Is Bringing Bright Suits Into Fall', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/new-arrivals-sept-28-2021', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/new-york-city-stylists-fostering-a-community', 'title': 'These Four Rising Stylists Are Fostering a Community in NYC', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "Sarah Spellings\n",
-      "{'link': 'https://www.vogue.com/article/lena-dunham-wedding-dress', 'title': 'The Story Behind Lena Dunham’s 3 Wedding Gowns', 'author': 'Sarah Spellings', 'date': 'September 29, 2021', 'time': None}\n",
-      "Alice Newbold\n",
-      "{'link': 'https://www.vogue.com/article/naomie-harris-no-time-to-die', 'title': '“It Makes Me Feel Like A Million Dollars”: Naomie Harris On Her Memorable Michael Kors 007 Premiere Look', 'author': 'Alice Newbold', 'date': 'September 29, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-stylist-lorenzo-posocco', 'title': 'Dua Lipa’s Stylist Gave Me a Vintage Makeover', 'author': 'Liana Satenstein', 'date': 'September 29, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/milan-fashion-week-street-style-fall-sandals', 'title': 'Milan’s Street Style Stars Prove Sandal Season Isn’t Over (Yet)', 'author': 'Madeline Fass', 'date': 'September 27, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/london-fashion-week-street-style-prints-outfits', 'title': 'In London, Showgoers Share the Proper Way to Style Statement-Making Prints', 'author': 'Madeline Fass', 'date': 'September 21, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/new-york-fashion-week-street-style-shopping-spring-2022', 'title': 'Nobody Wears Black Better Than New Yorkers: Shop Their Fashion Week Looks', 'author': 'Madeline Fass', 'date': 'September 15, 2021', 'time': None}\n",
-      "Monica Mendal\n",
-      "{'link': 'https://www.vogue.com/article/t-shirt-outfits', 'title': 'The Best T-Shirt and Trouser Pairings for This Season’s Most Laidback Trend', 'author': 'Monica Mendal', 'date': 'October 3, 2021', 'time': None}\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/what-i-wore-this-week-julie-tong', 'title': 'How One Vogue Editor Gets Dressed for a Fall Getaway Upstate', 'author': 'Julie Tong', 'date': 'October 2, 2021', 'time': None}\n",
-      "Lilah Ramzi\n",
-      "{'link': 'https://www.vogue.com/article/black-tie-attire', 'title': 'Is It a Skirt? Is It a Pant? Either Way, It’s the Only Thing I Want to Wear to Black Tie Events', 'author': 'Lilah Ramzi', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/rihanna-mini-skirt-fall-trend', 'title': 'Rihanna Gives the Mini Skirt a Playful Twist', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/angelina-jolie-variety-power-of-women-harithand-gown', 'title': 'Angelina Jolie Just Introduced the Next Great Red Carpet Label', 'author': 'Janelle Okwodu', 'date': 'October 1, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/eve-jobs-runway-debut-coperni-spring-2022', 'title': 'Eve Jobs Just Made Her Paris Fashion Week Debut', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/pattie-gonia-tiktok-drag-queen-environmentalism', 'title': 'Pattie Gonia Is the Drag Queen Bringing Environmentalism to TikTok', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Steff Yotka\n",
-      "{'link': 'https://www.vogue.com/article/charlotte-gainsbourg-zara-denim-collection', 'title': 'Charlotte Gainsbourg Creates Her Essential Wardrobe From Jeans to Tees for Zara', 'author': 'Steff Yotka', 'date': 'October 2, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/best-fashion-instagrams-kerwin-frost-cardi-b-shalom-harlow', 'title': 'Best Fashion Instagrams of the Week: Cardi B, Milla Jovovich, Shalom Harlow, and More', 'author': 'Liana Satenstein', 'date': 'October 2, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/balenciaga-handbags', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/loewe-handbags', 'title': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cute-maternity-dresses', 'title': '20 Maternity Dresses to Consider Wearing This Fall, Courtesy of Rosie Huntington-Whiteley and More Expectant Celebs', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/october-2021-dresses-to-shop-now', 'title': 'October Is Here– 15 Delightful Dresses to Shop this Month', 'author': 'Madeline Fass', 'date': 'October 1, 2021', 'time': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cool-things-to-buy-editor-purchases-september-2021', 'title': 'From Viral Bottega Veneta Boots to Designer Collabs, 28 Items Vogue Editors Purchased (and Loved) in September', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Rachel Besser\n",
-      "{'link': 'https://www.vogue.com/article/best-golf-clothes-for-women', 'title': 'You’ll Want to Sport This Golf Gear On and Off the Course', 'author': 'Rachel Besser', 'date': 'October 1, 2021', 'time': None}\n",
-      "Liam Hess\n",
-      "{'link': 'https://www.vogue.com/article/izaak-adu-watts-savage-x-fenty-model-interview', 'title': 'Meet Izaak Adu-Watts, the Breakout Model From Rihanna’s Savage x Fenty Show', 'author': 'Liam Hess', 'date': 'October 1, 2021', 'time': None}\n",
-      "Shelli Nicole\n",
-      "{'link': 'https://www.vogue.com/article/hilary-banks-style', 'title': 'An Ode to Hilary Banks—The Bougie Big Sister of My Dreams', 'author': 'Shelli Nicole', 'date': 'October 1, 2021', 'time': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/net-a-porter-reflaunt-new-resale-platform', 'title': 'Net-a-Porter Is Launching a Resale Pilot Program With Reflaunt', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/fall-skirts', 'title': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/best-white-t-shirts-for-women', 'title': '32 Vogue Editors Share the Best White T-Shirts', 'author': 'Julie Tong', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/bold-printed-blazer-fall-trend', 'title': 'Why the Bold, Printed Blazer Is My New Fall Staple', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/street-style-bags-fall-winter-2021', 'title': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/california-sb-62-garment-worker-protection-act', 'title': 'California Just Passed a Landmark Bill to Protect Garment Workers—Here’s What It Means for the Entire Fashion Industry', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/dakota-johnson-gucci-bustier-the-lost-daughter-premiere', 'title': 'Dakota Johnson’s Latest Look Shows the Other Side of Gucci', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Laird Borrelli-Persson\n",
-      "{'link': 'https://www.vogue.com/article/chloe-handbags', 'title': 'From the Paddington to the Marcie, a History of Chloé Handbags', 'author': 'Laird Borrelli-Persson', 'date': 'September 30, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-wired-earphones', 'title': 'Dua Lipa Artfully Accessorizes With Wired Headphones', 'author': 'Liana Satenstein', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/bridal-face-masks', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/best-wedding-guest-dresses', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/cardi-b-schiaparelli-surrealism-paris-fashion-week', 'title': 'Cardi B Brings Schiaparelli’s Surrealism to the Streets', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/kate-middleton-bright-suit-emilia-wickstead', 'title': 'Kate Middleton Is Bringing Bright Suits Into Fall', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/new-arrivals-sept-28-2021', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/new-york-city-stylists-fostering-a-community', 'title': 'These Four Rising Stylists Are Fostering a Community in NYC', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "Sarah Spellings\n",
-      "{'link': 'https://www.vogue.com/article/lena-dunham-wedding-dress', 'title': 'The Story Behind Lena Dunham’s 3 Wedding Gowns', 'author': 'Sarah Spellings', 'date': 'September 29, 2021', 'time': None}\n",
-      "Alice Newbold\n",
-      "{'link': 'https://www.vogue.com/article/naomie-harris-no-time-to-die', 'title': '“It Makes Me Feel Like A Million Dollars”: Naomie Harris On Her Memorable Michael Kors 007 Premiere Look', 'author': 'Alice Newbold', 'date': 'September 29, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-stylist-lorenzo-posocco', 'title': 'Dua Lipa’s Stylist Gave Me a Vintage Makeover', 'author': 'Liana Satenstein', 'date': 'September 29, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/milan-fashion-week-street-style-fall-sandals', 'title': 'Milan’s Street Style Stars Prove Sandal Season Isn’t Over (Yet)', 'author': 'Madeline Fass', 'date': 'September 27, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/london-fashion-week-street-style-prints-outfits', 'title': 'In London, Showgoers Share the Proper Way to Style Statement-Making Prints', 'author': 'Madeline Fass', 'date': 'September 21, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/new-york-fashion-week-street-style-shopping-spring-2022', 'title': 'Nobody Wears Black Better Than New Yorkers: Shop Their Fashion Week Looks', 'author': 'Madeline Fass', 'date': 'September 15, 2021', 'time': None}\n",
-      "Monica Mendal\n",
-      "{'link': 'https://www.vogue.com/article/t-shirt-outfits', 'title': 'The Best T-Shirt and Trouser Pairings for This Season’s Most Laidback Trend', 'author': 'Monica Mendal', 'date': 'October 3, 2021', 'time': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/what-i-wore-this-week-julie-tong', 'title': 'How One Vogue Editor Gets Dressed for a Fall Getaway Upstate', 'author': 'Julie Tong', 'date': 'October 2, 2021', 'time': None}\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Lilah Ramzi\n",
-      "{'link': 'https://www.vogue.com/article/black-tie-attire', 'title': 'Is It a Skirt? Is It a Pant? Either Way, It’s the Only Thing I Want to Wear to Black Tie Events', 'author': 'Lilah Ramzi', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/rihanna-mini-skirt-fall-trend', 'title': 'Rihanna Gives the Mini Skirt a Playful Twist', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/angelina-jolie-variety-power-of-women-harithand-gown', 'title': 'Angelina Jolie Just Introduced the Next Great Red Carpet Label', 'author': 'Janelle Okwodu', 'date': 'October 1, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/eve-jobs-runway-debut-coperni-spring-2022', 'title': 'Eve Jobs Just Made Her Paris Fashion Week Debut', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/pattie-gonia-tiktok-drag-queen-environmentalism', 'title': 'Pattie Gonia Is the Drag Queen Bringing Environmentalism to TikTok', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Steff Yotka\n",
-      "{'link': 'https://www.vogue.com/article/charlotte-gainsbourg-zara-denim-collection', 'title': 'Charlotte Gainsbourg Creates Her Essential Wardrobe From Jeans to Tees for Zara', 'author': 'Steff Yotka', 'date': 'October 2, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/best-fashion-instagrams-kerwin-frost-cardi-b-shalom-harlow', 'title': 'Best Fashion Instagrams of the Week: Cardi B, Milla Jovovich, Shalom Harlow, and More', 'author': 'Liana Satenstein', 'date': 'October 2, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/balenciaga-handbags', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/loewe-handbags', 'title': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cute-maternity-dresses', 'title': '20 Maternity Dresses to Consider Wearing This Fall, Courtesy of Rosie Huntington-Whiteley and More Expectant Celebs', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/october-2021-dresses-to-shop-now', 'title': 'October Is Here– 15 Delightful Dresses to Shop this Month', 'author': 'Madeline Fass', 'date': 'October 1, 2021', 'time': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cool-things-to-buy-editor-purchases-september-2021', 'title': 'From Viral Bottega Veneta Boots to Designer Collabs, 28 Items Vogue Editors Purchased (and Loved) in September', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Rachel Besser\n",
-      "{'link': 'https://www.vogue.com/article/best-golf-clothes-for-women', 'title': 'You’ll Want to Sport This Golf Gear On and Off the Course', 'author': 'Rachel Besser', 'date': 'October 1, 2021', 'time': None}\n",
-      "Liam Hess\n",
-      "{'link': 'https://www.vogue.com/article/izaak-adu-watts-savage-x-fenty-model-interview', 'title': 'Meet Izaak Adu-Watts, the Breakout Model From Rihanna’s Savage x Fenty Show', 'author': 'Liam Hess', 'date': 'October 1, 2021', 'time': None}\n",
-      "Shelli Nicole\n",
-      "{'link': 'https://www.vogue.com/article/hilary-banks-style', 'title': 'An Ode to Hilary Banks—The Bougie Big Sister of My Dreams', 'author': 'Shelli Nicole', 'date': 'October 1, 2021', 'time': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/net-a-porter-reflaunt-new-resale-platform', 'title': 'Net-a-Porter Is Launching a Resale Pilot Program With Reflaunt', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/fall-skirts', 'title': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/best-white-t-shirts-for-women', 'title': '32 Vogue Editors Share the Best White T-Shirts', 'author': 'Julie Tong', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/bold-printed-blazer-fall-trend', 'title': 'Why the Bold, Printed Blazer Is My New Fall Staple', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/street-style-bags-fall-winter-2021', 'title': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/california-sb-62-garment-worker-protection-act', 'title': 'California Just Passed a Landmark Bill to Protect Garment Workers—Here’s What It Means for the Entire Fashion Industry', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/dakota-johnson-gucci-bustier-the-lost-daughter-premiere', 'title': 'Dakota Johnson’s Latest Look Shows the Other Side of Gucci', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Laird Borrelli-Persson\n",
-      "{'link': 'https://www.vogue.com/article/chloe-handbags', 'title': 'From the Paddington to the Marcie, a History of Chloé Handbags', 'author': 'Laird Borrelli-Persson', 'date': 'September 30, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-wired-earphones', 'title': 'Dua Lipa Artfully Accessorizes With Wired Headphones', 'author': 'Liana Satenstein', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/bridal-face-masks', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/best-wedding-guest-dresses', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/cardi-b-schiaparelli-surrealism-paris-fashion-week', 'title': 'Cardi B Brings Schiaparelli’s Surrealism to the Streets', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/kate-middleton-bright-suit-emilia-wickstead', 'title': 'Kate Middleton Is Bringing Bright Suits Into Fall', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/new-arrivals-sept-28-2021', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/new-york-city-stylists-fostering-a-community', 'title': 'These Four Rising Stylists Are Fostering a Community in NYC', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "Sarah Spellings\n",
-      "{'link': 'https://www.vogue.com/article/lena-dunham-wedding-dress', 'title': 'The Story Behind Lena Dunham’s 3 Wedding Gowns', 'author': 'Sarah Spellings', 'date': 'September 29, 2021', 'time': None}\n",
-      "Alice Newbold\n",
-      "{'link': 'https://www.vogue.com/article/naomie-harris-no-time-to-die', 'title': '“It Makes Me Feel Like A Million Dollars”: Naomie Harris On Her Memorable Michael Kors 007 Premiere Look', 'author': 'Alice Newbold', 'date': 'September 29, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-stylist-lorenzo-posocco', 'title': 'Dua Lipa’s Stylist Gave Me a Vintage Makeover', 'author': 'Liana Satenstein', 'date': 'September 29, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/milan-fashion-week-street-style-fall-sandals', 'title': 'Milan’s Street Style Stars Prove Sandal Season Isn’t Over (Yet)', 'author': 'Madeline Fass', 'date': 'September 27, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/london-fashion-week-street-style-prints-outfits', 'title': 'In London, Showgoers Share the Proper Way to Style Statement-Making Prints', 'author': 'Madeline Fass', 'date': 'September 21, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/new-york-fashion-week-street-style-shopping-spring-2022', 'title': 'Nobody Wears Black Better Than New Yorkers: Shop Their Fashion Week Looks', 'author': 'Madeline Fass', 'date': 'September 15, 2021', 'time': None}\n",
-      "Monica Mendal\n",
-      "{'link': 'https://www.vogue.com/article/t-shirt-outfits', 'title': 'The Best T-Shirt and Trouser Pairings for This Season’s Most Laidback Trend', 'author': 'Monica Mendal', 'date': 'October 3, 2021', 'time': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/what-i-wore-this-week-julie-tong', 'title': 'How One Vogue Editor Gets Dressed for a Fall Getaway Upstate', 'author': 'Julie Tong', 'date': 'October 2, 2021', 'time': None}\n",
-      "Lilah Ramzi\n",
-      "{'link': 'https://www.vogue.com/article/black-tie-attire', 'title': 'Is It a Skirt? Is It a Pant? Either Way, It’s the Only Thing I Want to Wear to Black Tie Events', 'author': 'Lilah Ramzi', 'date': 'September 29, 2021', 'time': None}\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/rihanna-mini-skirt-fall-trend', 'title': 'Rihanna Gives the Mini Skirt a Playful Twist', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/angelina-jolie-variety-power-of-women-harithand-gown', 'title': 'Angelina Jolie Just Introduced the Next Great Red Carpet Label', 'author': 'Janelle Okwodu', 'date': 'October 1, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/eve-jobs-runway-debut-coperni-spring-2022', 'title': 'Eve Jobs Just Made Her Paris Fashion Week Debut', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/pattie-gonia-tiktok-drag-queen-environmentalism', 'title': 'Pattie Gonia Is the Drag Queen Bringing Environmentalism to TikTok', 'author': 'Christian Allaire', 'date': 'October 3, 2021', 'time': None}\n",
-      "Steff Yotka\n",
-      "{'link': 'https://www.vogue.com/article/charlotte-gainsbourg-zara-denim-collection', 'title': 'Charlotte Gainsbourg Creates Her Essential Wardrobe From Jeans to Tees for Zara', 'author': 'Steff Yotka', 'date': 'October 2, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/best-fashion-instagrams-kerwin-frost-cardi-b-shalom-harlow', 'title': 'Best Fashion Instagrams of the Week: Cardi B, Milla Jovovich, Shalom Harlow, and More', 'author': 'Liana Satenstein', 'date': 'October 2, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/balenciaga-handbags', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/loewe-handbags', 'title': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cute-maternity-dresses', 'title': '20 Maternity Dresses to Consider Wearing This Fall, Courtesy of Rosie Huntington-Whiteley and More Expectant Celebs', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Madeline Fass\n",
-      "{'link': 'https://www.vogue.com/article/october-2021-dresses-to-shop-now', 'title': 'October Is Here– 15 Delightful Dresses to Shop this Month', 'author': 'Madeline Fass', 'date': 'October 1, 2021', 'time': None}\n",
-      "Alexis Bennett\n",
-      "{'link': 'https://www.vogue.com/article/cool-things-to-buy-editor-purchases-september-2021', 'title': 'From Viral Bottega Veneta Boots to Designer Collabs, 28 Items Vogue Editors Purchased (and Loved) in September', 'author': 'Alexis Bennett', 'date': 'October 1, 2021', 'time': None}\n",
-      "Rachel Besser\n",
-      "{'link': 'https://www.vogue.com/article/best-golf-clothes-for-women', 'title': 'You’ll Want to Sport This Golf Gear On and Off the Course', 'author': 'Rachel Besser', 'date': 'October 1, 2021', 'time': None}\n",
-      "Liam Hess\n",
-      "{'link': 'https://www.vogue.com/article/izaak-adu-watts-savage-x-fenty-model-interview', 'title': 'Meet Izaak Adu-Watts, the Breakout Model From Rihanna’s Savage x Fenty Show', 'author': 'Liam Hess', 'date': 'October 1, 2021', 'time': None}\n",
-      "Shelli Nicole\n",
-      "{'link': 'https://www.vogue.com/article/hilary-banks-style', 'title': 'An Ode to Hilary Banks—The Bougie Big Sister of My Dreams', 'author': 'Shelli Nicole', 'date': 'October 1, 2021', 'time': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/net-a-porter-reflaunt-new-resale-platform', 'title': 'Net-a-Porter Is Launching a Resale Pilot Program With Reflaunt', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/fall-skirts', 'title': None}\n",
-      "Julie Tong \n",
-      "{'link': 'https://www.vogue.com/article/best-white-t-shirts-for-women', 'title': '32 Vogue Editors Share the Best White T-Shirts', 'author': 'Julie Tong', 'date': 'September 30, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/bold-printed-blazer-fall-trend', 'title': 'Why the Bold, Printed Blazer Is My New Fall Staple', 'author': 'Christian Allaire', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/street-style-bags-fall-winter-2021', 'title': None}\n",
-      "Emily Farra\n",
-      "{'link': 'https://www.vogue.com/article/california-sb-62-garment-worker-protection-act', 'title': 'California Just Passed a Landmark Bill to Protect Garment Workers—Here’s What It Means for the Entire Fashion Industry', 'author': 'Emily Farra', 'date': 'September 30, 2021', 'time': None}\n",
-      "Janelle Okwodu\n",
-      "{'link': 'https://www.vogue.com/article/dakota-johnson-gucci-bustier-the-lost-daughter-premiere', 'title': 'Dakota Johnson’s Latest Look Shows the Other Side of Gucci', 'author': 'Janelle Okwodu', 'date': 'September 30, 2021', 'time': None}\n",
-      "Laird Borrelli-Persson\n",
-      "{'link': 'https://www.vogue.com/article/chloe-handbags', 'title': 'From the Paddington to the Marcie, a History of Chloé Handbags', 'author': 'Laird Borrelli-Persson', 'date': 'September 30, 2021', 'time': None}\n",
-      "Liana Satenstein\n",
-      "{'link': 'https://www.vogue.com/article/dua-lipa-wired-earphones', 'title': 'Dua Lipa Artfully Accessorizes With Wired Headphones', 'author': 'Liana Satenstein', 'date': 'September 30, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/bridal-face-masks', 'title': None}\n",
-      "{'link': 'https://www.vogue.com/article/best-wedding-guest-dresses', 'title': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/cardi-b-schiaparelli-surrealism-paris-fashion-week', 'title': 'Cardi B Brings Schiaparelli’s Surrealism to the Streets', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "Christian Allaire\n",
-      "{'link': 'https://www.vogue.com/article/kate-middleton-bright-suit-emilia-wickstead', 'title': 'Kate Middleton Is Bringing Bright Suits Into Fall', 'author': 'Christian Allaire', 'date': 'September 29, 2021', 'time': None}\n",
-      "{'link': 'https://www.vogue.com/article/new-arrivals-sept-28-2021', 'title': None}\n"
-     ]
-    },
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "[nltk_data] Downloading package stopwords to /Users/sai/nltk_data...\n",
-      "[nltk_data]   Package stopwords is already up-to-date!\n"
-     ]
-    }
-   ],
-   "source": [
-    "# make https requests\n",
-    "import requests\n",
-    "# import beautifulsoup\n",
-    "from bs4 import BeautifulSoup\n",
-    "# file\n",
-    "import json\n",
-    "# natrual language processing\n",
-    "import nltk\n",
-    "from nltk.corpus import stopwords\n",
-    "from nltk.stem import WordNetLemmatizer\n",
-    "from nltk.tokenize import word_tokenize\n",
-    "import spacy\n",
-    "sp = spacy.load('en_core_web_sm')\n",
-    "\n",
-    "import operator\n",
-    "\n",
-    "import string\n",
-    "import os\n",
-    "\"\"\"\n",
-    "1) [5 points] Choose one or more news websites to analyze, such as news.yahoo.com, www.cnn.com, \n",
-    "or www.aljazeera.com (we will make no assumptions about your political affiliations based on your \n",
-    "choice of source. You may also use specialty sites such as www.people.com or www.espn.com. \n",
-    "Indicate your preference in the spreadsheet located here (you may not choose a source that another \n",
-    "group has already chosen): \n",
-    "https://docs.google.com/spreadsheets/d/14mWBrlU_xn5vnF8JZLlJUDbAB3T0NZfUsUkPyeyzGhE/edit#gid=0\n",
-    "\"\"\"\n",
-    "# request page using home html\n",
-    "mainSite = \"https://www.vogue.com/fashion?us_site=y/\"\n",
-    "\n",
-    "\"\"\"\n",
-    "2) [5 points] Write a script using beautifulsoup that will download at least 100 full articles from the \n",
-    "site. The script should not hardcode any sites other than the homepage, and it should be able to run \n",
-    "at any time and collect the most recent articles.\n",
-    "\n",
-    "3) [5 points] Place the articles retrieved into a file called articles.json in the root level of your github repo. \n",
-    "Each line of this file should contain the data of one article, with the following fields: title, author, date, and body. \n",
-    "If any of these cannot be found, use \"None.\" however there must be a body, and this should be the entire text of the \n",
-    "main body, with all hyperlinks and media removed. It must be at least 100 words long.\n",
-    "\"\"\"\n",
-    "# number of articles we wish to collect (groups of 9 so round down)\n",
-    "n = 100\n",
-    "\n",
-    "# json file to store articles\n",
-    "filenameArticle = 'articles.json'\n",
-    "\n",
-    "# initailly should be empty file\n",
-    "with open(filenameArticle, mode='w', encoding='UTF-8') as f:\n",
-    "    json.dump([], f)\n",
-    "\n",
-    "for i in range(1, n//9+1):\n",
-    "    # next set of 5 articles we wish to scrape\n",
-    "    nextSite = mainSite+str(i)\n",
-    "    page = requests.get(nextSite)\n",
-    "\n",
-    "    # create beautifulsoup parser\n",
-    "    soup = BeautifulSoup(page.content, \"html.parser\")\n",
-    "    # iterate through articles on first page\n",
-    "    for articles in soup.find_all('a', class_=\"summary-item-tracking__hed-link summary-item__hed-link\"):\n",
-    "        # find the link to the next article.\n",
-    "        # Must give header to Vogue\n",
-    "        if(\"/article\" in articles['href']):\n",
-    "            if(\"www.vogue.com\" not in articles['href']):\n",
-    "                articleLink = \"https://www.vogue.com\"+articles['href']\n",
-    "\n",
-    "            articlePage = requests.get(articleLink)\n",
-    "            articleSoup = BeautifulSoup(articlePage.content, 'html.parser')\n",
-    "\n",
-    "            article = {}\n",
-    "\n",
-    "            # add link of article\n",
-    "            article[\"link\"] = articleLink\n",
-    "            # add title of article\n",
-    "            title = articleSoup.find('h1', class_=\"content-header__row content-header__hed\")\n",
-    "            if(not title == None):\n",
-    "                article[\"title\"] = title.text.strip()\n",
-    "\n",
-    "            else:\n",
-    "                article[\"title\"] = None\n",
-    "#             # add subheader of title\n",
-    "#             subheader = articleSoup.find('h2', class_=\"Article-subline\")\n",
-    "#             if(not subheader == None):\n",
-    "#                 article['subtitle'] = subheader.text.strip()\n",
-    "#             else:\n",
-    "#                 article['subtitle'] = None\n",
-    "\n",
-    "            # article info (title, date published, time published, readtime)\n",
-    "            otherInfo = articleSoup.find(\"div\", class_=\"content-header__byline__content\")\n",
-    "            if (not otherInfo  == None):\n",
-    "                # author\n",
-    "                author = otherInfo.find('span', class_=\"BylineName-cLfBPm dmnSKi byline__name\").text\n",
-    "                print(author)\n",
-    "                if(not author == None):\n",
-    "                    article['author'] = author.strip()\n",
-    "                else:\n",
-    "                    article['author'] = None\n",
-    "            \n",
-    "                # time posted\n",
-    "                posted = otherInfo.find('time', class_=\"content-header__publish-date\")\n",
-    "                \n",
-    "                if(posted == None):\n",
-    "                    article['date'] = None\n",
-    "                    article['time'] = None\n",
-    "                else:\n",
-    "                    article['date'] = posted.get_text()\n",
-    "                    article['time'] = None\n",
-    "            print(article)\n",
-    "            \n",
-    "            # content\n",
-    "    \n",
-    "        content = articleSoup.find('div', class_=\"article__body\")\n",
-    "        \n",
-    "        # sections\n",
-    "        sections = []\n",
-    "        # get top three headers\n",
-    "        for sectionIndex in range(0, 4):\n",
-    "            headerType = 'h'+str(sectionIndex)\n",
-    "            sectionNames = content.find_all(headerType)\n",
-    "            # increment through the sections\n",
-    "            for s in sectionNames:\n",
-    "                # only want text paragraphs\n",
-    "                if (s.attrs == {} and len(s.text)>0):\n",
-    "                    sections.append(s.text.strip())\n",
-    "        if(len(sections) == 0):\n",
-    "            article['section'] = None\n",
-    "        else:\n",
-    "            article['section'] = sections\n",
-    "        # paragraphs\n",
-    "        paragraphs = content.find_all('p')\n",
-    "        writtenContent = \"\"\n",
-    "        prefix = \"\"\n",
-    "        # convert into one line\n",
-    "        for p in paragraphs:\n",
-    "            # only want text paragraphs and paragraphs containing text\n",
-    "            if(p.attrs == {} and len(p.text.strip())>0):\n",
-    "                # only want 'p'\n",
-    "                writtenContent = writtenContent + prefix +  p.text.strip()\n",
-    "                prefix = \" \"\n",
-    "        article['body'] = writtenContent\n",
-    "        # lists\n",
-    "        lists = content.find_all('ul')\n",
-    "        listElements = []\n",
-    "        # increment through the lists\n",
-    "        for l in lists:\n",
-    "            nextList = l.find_all('li')\n",
-    "            for element in nextList:\n",
-    "                listElements.append(element.text)\n",
-    "        if(len(listElements)==0):\n",
-    "            article['list'] = None\n",
-    "        else:\n",
-    "            article['list'] = listElements\n",
-    "\n",
-    "        # check body is greater then 100 characters\n",
-    "        if(len(writtenContent.split(\" \")) > 100):\n",
-    "            with open(filenameArticle, 'r+') as f:\n",
-    "                data = json.load(f)\n",
-    "                data.append(article)\n",
-    "                f.seek(0)\n",
-    "                json.dump(data, f)\n",
-    "\n",
-    "\n",
-    "\n",
-    "# # \"\"\"\n",
-    "# # 4) [10 points] Add an additional field to articles.json, called \"preprocessed.\" This should take the body field and \n",
-    "# # remove stop words, lemmatize and stem (if appropriate) and/or removing frequent, infrequent words.\n",
-    "\n",
-    "# # 5) [5 points] Call the script that performs 1-4 scraper.py and place in the root directory of your repo. You should \n",
-    "# # indicate in the comments clearly where you perform each of the tasks listed above.\n",
-    "# # \"\"\"\n",
-    "\n",
-    "# open the file to read from\n",
-    "filePost = open(filenameArticle,mode='r', encoding='UTF-8')\n",
-    "# get the data and store in dictionary\n",
-    "dataArticles = json.load(filePost)\n",
-    "\n",
-    "# create the set of stopwords\n",
-    "nltk.download('stopwords')\n",
-    "englishStopWords = list(stopwords.words('english'))\n",
-    "# use natural language toolkit lemmatizer\n",
-    "wnl = WordNetLemmatizer()\n",
-    "punctuation =  '''!()-[]{};:'\"\\,<>./?@#$%^&*_~'''\n",
-    "# the index of the word we are changing\n",
-    "index = 0\n",
-    "\n",
-    "# iterate through the text\n",
-    "for postText in dataArticles:\n",
-    "    # grab the text, change to lower case, and tokenize it\n",
-    "    body = postText['body'].lower()\n",
-    "    link = postText['link']\n",
-    "    postTolkens = sp(body) #word_tokenize(body)\n",
-    "\n",
-    "    # create a sentence of words\n",
-    "    preprocessPost = \"\"\n",
-    "    prefix = \"\"\n",
-    "\n",
-    "    # filter so no longer contains the stopping words\n",
-    "    for word in postTolkens:\n",
-    "        # get rid of stopwords and find stem or word\n",
-    "        if (not word.text.replace(\"'\", \"\") in englishStopWords\n",
-    "                # get rid of n't, which was a problem when tokenizing\n",
-    "                and not word.text.replace(\"'\", \"\") in [\"nt\"]):\n",
-    "            # get rid of punctuation\n",
-    "            onlyPunctuation = True\n",
-    "            for c in word.text:\n",
-    "                if(not c in string.punctuation):\n",
-    "                    onlyPunctuation = False\n",
-    "                    break\n",
-    "            if(not onlyPunctuation):\n",
-    "                preprocessPost += prefix + (word.lemma_)\n",
-    "                prefix = \" \"\n",
-    "    # add the new sentence to the file\n",
-    "    with open(filenameArticle, mode='r+', encoding='UTF-8') as f:\n",
-    "        data = json.load(f)\n",
-    "        # add the text of the file\n",
-    "        data[index]['preprocessed']= preprocessPost\n",
-    "        f.seek(0)\n",
-    "        json.dump(data, f)\n",
-    "\n",
-    "    filePost.close()\n",
-    "    # increment to next value\n",
-    "    index+=1\n",
-    "    \n",
-    "\n",
-    "\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "c990d206",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "9fa498cf",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.8.8"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
-}
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[32]:
+
+
+# make https requests
+import requests
+# import beautifulsoup
+from bs4 import BeautifulSoup
+# file
+import json
+# natrual language processing
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+import spacy
+sp = spacy.load('en_core_web_sm')
+
+import operator
+
+import string
+import os
+
+"""
+1) [5 points] Choose one or more news websites to analyze, such as news.yahoo.com, www.cnn.com, 
+or www.aljazeera.com (we will make no assumptions about your political affiliations based on your 
+choice of source. You may also use specialty sites such as www.people.com or www.espn.com. 
+Indicate your preference in the spreadsheet located here (you may not choose a source that another 
+group has already chosen): 
+https://docs.google.com/spreadsheets/d/14mWBrlU_xn5vnF8JZLlJUDbAB3T0NZfUsUkPyeyzGhE/edit#gid=0
+"""
+# request page using home html
+mainSite = "https://www.vogue.com/fashion?us_site=y/"
+
+"""
+2) [5 points] Write a script using beautifulsoup that will download at least 100 full articles from the 
+site. The script should not hardcode any sites other than the homepage, and it should be able to run 
+at any time and collect the most recent articles.
+
+3) [5 points] Place the articles retrieved into a file called articles.json in the root level of your github repo. 
+Each line of this file should contain the data of one article, with the following fields: title, author, date, and body. 
+If any of these cannot be found, use "None." however there must be a body, and this should be the entire text of the 
+main body, with all hyperlinks and media removed. It must be at least 100 words long.
+"""
+# number of articles we wish to collect (groups of 9 so round down)
+n = 100
+
+# json file to store articles
+filenameArticle = 'articles_vogue.json'
+
+# initailly should be empty file
+with open(filenameArticle, mode='w', encoding='UTF-8') as f:
+    json.dump([], f)
+
+for i in range(1, n//9+1):
+    # next set of 9 articles we wish to scrape
+    nextSite = mainSite+str(i)
+    page = requests.get(nextSite)
+
+    # create beautifulsoup parser
+    soup = BeautifulSoup(page.content, "html.parser")
+    # iterate through articles on first page
+    for articles in soup.find_all('a', class_="summary-item__hed-link"):
+        # find the link to the next article.
+        # Must give header to cbs sports
+        articleLink = "https://www.vogue.com"+articles['href']
+
+        if("/article/" in articleLink):
+            articlePage = requests.get(articleLink)
+            articleSoup = BeautifulSoup(articlePage.content, 'html.parser')
+
+            article = {}
+
+            # add link of article
+            article["link"] = articleLink
+            print(article["link"])
+            # add title of article
+            title = articleSoup.find('h1', class_="content-header__row content-header__hed")
+            if(not title == None):
+                article["title"] = title.text.strip()
+            else:
+                article["title"] = None
+
+            author = articleSoup.find("span", class_ = "byline__name")
+            if(not author == None):
+                article['author'] = author.text.strip()
+            else:
+                article['author'] = None
+
+            # time posted
+            posted = articleSoup.find('time', class_="content-header__publish-date")
+            if(posted == None):
+                article['date'] = None
+                article['time'] = None
+            else:
+
+                article['date'] = posted.text
+                article['time'] = None
+
+            # content
+            content = articleSoup.find('div', class_="article__body")
+            # sections
+            sections = []
+            # get top three headers
+            for sectionIndex in range(0, 4):
+                headerType = 'h'+str(sectionIndex)
+                sectionNames = content.find_all(headerType)
+                # increment through the sections
+                for s in sectionNames:
+                    # only want text paragraphs
+                    if (s.attrs == {} and len(s.text)>0):
+                        sections.append(s.text.strip())
+            if(len(sections) == 0):
+                article['section'] = None
+            else:
+                article['section'] = sections
+            # paragraphs
+            paragraphs = content.find_all('p')
+            writtenContent = ""
+            prefix = ""
+            # convert into one line
+            for p in paragraphs:
+                # only want text paragraphs and paragraphs containing text
+                if(p.attrs == {} and len(p.text.strip())>0):
+                    # only want 'p'
+                    writtenContent = writtenContent + prefix +  p.text.strip()
+                    prefix = " "
+            article['body'] = writtenContent
+            # lists
+            lists = content.find_all('ul')
+            listElements = []
+            #increment through the lists
+            for l in lists:
+                nextList = l.find_all('li')
+                for element in nextList:
+                    listElements.append(element.text)
+            if(len(listElements)==0):
+                article['list'] = None
+            else:
+                article['list'] = listElements
+            # check body is greater then 100 characters
+            if(len(writtenContent.split(" ")) > 100):
+                print(article)
+                with open(filenameArticle, 'r+') as f:
+                    data = json.load(f)
+                    data.append(article)
+                    f.seek(0)
+                    json.dump(data, f)
+
+# """
+# 4) [10 points] Add an additional field to articles.json, called "preprocessed." This should take the body field and 
+# remove stop words, lemmatize and stem (if appropriate) and/or removing frequent, infrequent words.
+
+# 5) [5 points] Call the script that performs 1-4 scraper.py and place in the root directory of your repo. You should 
+# indicate in the comments clearly where you perform each of the tasks listed above.
+# """
+
+# open the file to read from
+filePost = open(filenameArticle,mode='r', encoding='UTF-8')
+# get the data and store in dictionary
+dataArticles = json.load(filePost)
+
+# create the set of stopwords
+nltk.download('stopwords')
+englishStopWords = list(stopwords.words('english'))
+# use natural language toolkit lemmatizer
+wnl = WordNetLemmatizer()
+punctuation =  '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+# the index of the word we are changing
+index = 0
+
+# iterate through the text
+for postText in dataArticles:
+    # grab the text, change to lower case, and tokenize it
+    body = postText['body'].lower()
+    link = postText['link']
+    postTolkens = sp(body) #word_tokenize(body)
+
+    # create a sentence of words
+    preprocessPost = ""
+    prefix = ""
+
+    # filter so no longer contains the stopping words
+    for word in postTolkens:
+        # get rid of stopwords and find stem or word
+        if (not word.text.replace("'", "") in englishStopWords
+                # get rid of n't, which was a problem when tokenizing
+                and not word.text.replace("'", "") in ["nt"]):
+            # get rid of punctuation
+            onlyPunctuation = True
+            for c in word.text:
+                if(not c in string.punctuation):
+                    onlyPunctuation = False
+                    break
+            if(not onlyPunctuation):
+                preprocessPost += prefix + (word.lemma_)
+                prefix = " "
+    # add the new sentence to the file
+    with open(filenameArticle, mode='r+', encoding='UTF-8') as f:
+        data = json.load(f)
+        # add the text of the file
+        data[index]['preprocessed']= preprocessPost
+        f.seek(0)
+        json.dump(data, f)
+
+    filePost.close()
+    # increment to next value
+    index+=1
