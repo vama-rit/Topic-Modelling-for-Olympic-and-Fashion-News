@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[47]:
-
-
 # make https requests
 import requests
 # import beautifulsoup
@@ -220,16 +217,3 @@ for postText in dataArticles:
     filePost.close()
     # increment to next value
     index+=1
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
