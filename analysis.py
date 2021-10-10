@@ -46,7 +46,7 @@ def createTopicModes():
     # iterate through the different number of topics
     for nt in range(10,31):
         # create topic model
-        topicModel = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=bagOfWords, num_topics=nt)
+        topicModel = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=bagOfWords, num_topics=nt, per_word_topics =True)
         topicModels.append(topicModel)
 
         # calculate the perplexity, lower better
