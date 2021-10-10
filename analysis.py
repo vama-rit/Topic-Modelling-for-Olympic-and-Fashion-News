@@ -39,9 +39,6 @@ def createTopicModes():
     numTopics = []
     perplexities = []
     coherences = []
-    # since values 0 set as large negative value
-    maxC=-10
-    bestModel = None
 
     # keep track of the actual topic models
     topicModels = []
@@ -61,11 +58,6 @@ def createTopicModes():
         # add the number of topics and coherence to the lists
         numTopics.append(nt)
         coherences.append(c)
-
-        # check if better model
-        if(c>maxC):
-            maxC = c
-            bestModel = topicModel
 
     # plot the values
     # perpelexity
@@ -96,7 +88,7 @@ def createTopicModes():
     plt.savefig(fileCoherence)
     plt.close()
 
-    return bestModel
+    return topicModels
 
 
 """
@@ -112,15 +104,20 @@ help produce the LaTeX for this table.
 9) [10 points] Project your articles into the topic model. For each topic, find the article where that topic is the most 
 likely. [10 points] Then in your report, list each topic number followed by the name and date of the article you found.
 """
+f = open("topics.txt", "r+")
+f.truncate(0)
 
 def main():
     # find the best topic model
-    bestTopicModel = createTopicModes()
+    topicModels = createTopicModes()
 
     # print the topics
-    for topics in bestTopicModel.print_topics():
-        print(topics)
-
+    for topicModel in topicModels:
+        f.write("Topic of size : "+str(topicModel.num_topics)+"\n")
+        for topic in topicModel.print_topics():
+            f.write(str(topic)+"\n")
+        f.write("\n")
+    f.close()
 
 if __name__ == '__main__':
 	main()
