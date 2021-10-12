@@ -1,42 +1,16 @@
 Topic of size : 15
 (0, '0.008*"richardson" + 0.004*"race" + 0.004*"penalty" + 0.004*"herah" + 0.003*"classic" + 0.003*"medalist" + 0.003*"late" + 0.003*"post" + 0.003*"steveson" + 0.003*"minute" + 0.003*"kick" + 0.003*"100" + 0.003*"career" + 0.003*"thompson" + 0.003*"end" + 0.002*"korda" + 0.002*"history" + 0.002*"canada" + 0.002*"deal" + 0.002*"prefontaine"') // track events
-
-
 (1, '0.005*"season" + 0.004*"goal" + 0.003*"trend" + 0.003*"2022" + 0.003*"spring" + 0.003*"bag" + 0.003*"bet" + 0.003*"mexico" + 0.003*"love" + 0.003*"gainsbourg" + 0.002*"medalist" + 0.002*"home" + 0.002*"sportsline" + 0.002*"slovenia" + 0.002*"pandemic" + 0.002*"jean" + 0.002*"four" + 0.002*"bile" + 0.002*"tournament" + 0.002*"try"') // trends 
- 
-
 (2, '0.007*"instagram" + 0.006*"view" + 0.005*"prediction" + 0.004*"sportsline" + 0.003*"russian" + 0.003*"life" + 0.003*"tournament" + 0.003*"include" + 0.003*"side" + 0.003*"week" + 0.002*"place" + 0.002*"average" + 0.002*"work" + 0.002*"hat" + 0.002*"summer" + 0.002*"total" + 0.002*"big" + 0.002*"2016" + 0.002*"experience" + 0.002*"part"') // unknown
-
-
 (3, '0.005*"parchment" + 0.004*"end" + 0.003*"thing" + 0.003*"name" + 0.003*"hat" + 0.003*"people" + 0.003*"never" + 0.002*"xueying" + 0.002*"earn" + 0.002*"give" + 0.002*"place" + 0.002*"committee" + 0.002*"report" + 0.002*"global" + 0.002*"trijana" + 0.002*"great" + 0.002*"dream" + 0.002*"offer" + 0.002*"little" + 0.002*"need"') // people 
-
-
 (4, '0.008*"6" + 0.008*"7" + 0.006*"5" + 0.006*"10" + 0.004*"12" + 0.004*"8" + 0.003*"11" + 0.003*"south" + 0.003*"country" + 0.002*"20" + 0.002*"republic" + 0.002*"9" + 0.002*"bile" + 0.002*"charge" + 0.002*"people" + 0.002*"keller" + 0.002*"14" + 0.002*"21" + 0.002*"korea" + 0.002*"seven"') // numbers
-
 (5, '0.005*"slovenia" + 0.004*"sportsline" + 0.004*"prediction" + 0.004*"tournament" + 0.004*"percent" + 0.003*"high" + 0.003*"side" + 0.003*"king" + 0.003*"big" + 0.003*"trend" + 0.003*"spain" + 0.003*"bag" + 0.003*"share" + 0.003*"average" + 0.003*"assist" + 0.003*"bet" + 0.003*"total" + 0.003*"count" + 0.002*"nine" + 0.002*"offensive"') // stats
-
-
 (6, '0.005*"2022" + 0.004*"coach" + 0.004*"spring" + 0.004*"leach" + 0.003*"anderson" + 0.003*"bring" + 0.003*"foil" + 0.002*"designer" + 0.002*"we" + 0.002*"boutique" + 0.002*"life" + 0.002*"work" + 0.002*"country" + 0.002*"dame" + 0.002*"rank" + 0.002*"2016" + 0.002*"vogue" + 0.002*"notre" + 0.002*"fencing" + 0.002*"championship"') // fencing 
-
-
 (7, '0.007*"chanel" + 0.004*"jawad" + 0.003*"pair" + 0.003*"dress" + 0.003*"paralympic" + 0.002*"red" + 0.002*"house" + 0.002*"\'" + 0.002*"never" + 0.002*"week" + 0.002*"put" + 0.002*"paris" + 0.002*"add" + 0.002*"around" + 0.002*"stewart" + 0.002*"’" + 0.002*"pentathlon" + 0.002*"friend" + 0.002*"side" + 0.002*"much"') // fashion week 
-
-
 (8, '0.004*"n’t" + 0.003*"hat" + 0.003*"airpod" + 0.003*"headphone" + 0.003*"dress" + 0.003*"director" + 0.002*"love" + 0.002*"harris" + 0.002*"wire" + 0.002*"vogue" + 0.002*"aldridge" + 0.002*"model" + 0.002*"thing" + 0.002*"’" + 0.002*"piece" + 0.002*"set" + 0.002*"bring" + 0.002*"talk" + 0.002*"many" + 0.002*"michael"') // music fashion
-
-
 (9, '0.005*"paralympic" + 0.004*"history" + 0.004*"andrejczyk" + 0.003*"afghanistan" + 0.003*"country" + 0.003*"work" + 0.003*"dress" + 0.003*"never" + 0.002*"vogue" + 0.002*"2016" + 0.002*"even" + 0.002*"female" + 0.002*"part" + 0.002*"still" + 0.002*"committee" + 0.002*"tell" + 0.002*"six" + 0.002*"much" + 0.002*"stylist" + 0.002*"four"') // gymnastic
-
-
 (10, '0.005*"seidel" + 0.004*"marathon" + 0.004*"set" + 0.004*"double" + 0.003*"country" + 0.003*"third" + 0.003*"ross" + 0.003*"even" + 0.003*"12" + 0.003*"mazdzer" + 0.003*"dress" + 0.003*"medalist" + 0.003*"history" + 0.002*"rebound" + 0.002*"tell" + 0.002*"love" + 0.002*"straight" + 0.002*"10" + 0.002*"place" + 0.002*"race"') // running
-
-
 (11, '0.004*"springsteen" + 0.003*"aug" + 0.003*"record" + 0.003*"july" + 0.003*"10" + 0.003*"state" + 0.003*"become" + 0.002*"richardson" + 0.002*"pergolini" + 0.002*"jump" + 0.002*"rousteing" + 0.002*"b" + 0.002*"race" + 0.002*"spain" + 0.002*"pagoni" + 0.002*"love" + 0.002*"6" + 0.002*"100" + 0.002*"canada" + 0.002*"heel"') // unknown
-
 (12, '0.005*"mclaughlin" + 0.003*"steveson" + 0.003*"percent" + 0.003*"medalist" + 0.003*"bile" + 0.003*"chelimo" + 0.003*"record" + 0.003*"hat" + 0.003*"balance" + 0.003*"race" + 0.002*"sportsline" + 0.002*"2016" + 0.002*"tournament" + 0.002*"8" + 0.002*"home" + 0.002*"big" + 0.002*"view" + 0.002*"part" + 0.002*"face" + 0.002*"competition"') // winners
-
-
 (13, '0.003*"much" + 0.003*"storey" + 0.003*"spain" + 0.003*"race" + 0.003*"july" + 0.003*"history" + 0.003*"four" + 0.003*"bet" + 0.003*"set" + 0.002*"paralympic" + 0.002*"coach" + 0.002*"late" + 0.002*"aug" + 0.002*"mexico" + 0.002*"south" + 0.002*"week" + 0.002*"include" + 0.002*"friday" + 0.002*"place" + 0.002*"republic"') // date and time
-
-
 (14, '0.007*"chelimo" + 0.003*"king" + 0.003*"goal" + 0.003*"score" + 0.003*"brazil" + 0.003*"life" + 0.003*"big" + 0.003*"include" + 0.003*"season" + 0.003*"career" + 0.003*"give" + 0.003*"hard" + 0.002*"medalist" + 0.002*"balenciaga" + 0.002*"steveson" + 0.002*"player" + 0.002*"record" + 0.002*"spain" + 0.002*"earn" + 0.002*"lot"') // unknown
