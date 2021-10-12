@@ -22,5 +22,6 @@ for i in lines:
 
 dictlist={i[len(i)-1]: i[0:(len(i)-1)] for i in lines}
 df=pd.DataFrame.from_dict(dictlist,orient='index').transpose()
+df.to_csv(r'topic_table.csv', index = False)
 print(df.to_latex(index=True)) 
 
