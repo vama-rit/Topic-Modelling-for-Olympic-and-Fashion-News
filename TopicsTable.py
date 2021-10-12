@@ -3,6 +3,7 @@
 
 import re
 import pandas as pd
+
 lines=[]
 with open('topics.txt') as file:
     next(file)
