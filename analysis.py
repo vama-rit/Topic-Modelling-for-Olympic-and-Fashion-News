@@ -12,6 +12,8 @@ import json
 import matplotlib.pyplot as plt
 import numpy as np
 
+import re
+
 """
 6) [10 points] Using gensim, perform topic modeling on your data for between 10 and 30 topics. For each topic model, you 
 should measure its performance using perplexity, Bayesian information criterion, and/or coherence. For each measurement, 
