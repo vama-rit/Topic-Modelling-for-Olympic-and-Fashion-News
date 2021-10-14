@@ -124,7 +124,7 @@ if __name__ == '__main__':
 	main()
 
 lines=[]
-with open('topics.txt') as file:
+with open('size-15-categories.txt') as file:
     next(file)
     for line in file:
         lines.append(re.split(';|,|\+|\)|\n', line))
