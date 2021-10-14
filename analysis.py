@@ -5,7 +5,7 @@ from gensim.utils import simple_preprocess
 from gensim.models import CoherenceModel
 
 # read the json files
-iimport pandas as pd 
+import pandas as pd 
 import json 
 
 # plot graphs
