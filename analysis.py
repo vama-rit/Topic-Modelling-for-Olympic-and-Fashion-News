@@ -94,13 +94,11 @@ def createTopicModes():
 """
 7) [10 points] Choose the optimal number of topics based on your graph. Explain in your report how you came to that 
 conclusion.
-
 8) [10 points] In your report, create a table (or multiple tables if you cannot fit it in a single table) with one 
 column per topic and a listing of the 20 most likely words in the rows, in descending order. [5 oints] Additionally each 
 column should have two header rows, one for the topic number and the other for a name you give it, based on what the 
 most likely words suggest. If you cannot think of a name for a give column, write "unclear." You should use pandas to 
 help produce the LaTeX for this table.
-
 9) [10 points] Project your articles into the topic model. For each topic, find the article where that topic is the most 
 likely. [10 points] Then in your report, list each topic number followed by the name and date of the article you found.
 """
@@ -121,3 +119,47 @@ def main():
 
 if __name__ == '__main__':
 	main()
+
+lines=[]
+with open('topics.txt') as file:
+    next(file)
+    for line in file:
+        lines.append(re.split(';|,|\+|\)|\n', line))
+
+for i in lines:
+    for j in range(len(i)):
+        i[j]=re.sub('[(\\\\!@\'#$/\" "]', '', i[j])
+        if "*" in i[j]:
+            i[j]=i[j].partition("*")[2]
+    i.pop(0)
+    i.remove('')
+    if '' in i:
+        i.remove('')
+
+dictlist={i[len(i)-1]: i[0:(len(i)-1)] for i in lines}
+df=pd.DataFrame.from_dict(dictlist,orient='index').transpose()
+df.to_csv(r'topic_table.csv', index = False)
+print(df.to_latex(index=True)) 
+
+df = pd.read_csv('topic_table.csv')
+topics = list(df.columns)
+file = open('articles.json',mode='r', encoding='UTF-8')
+articles = json.load(file)
+
+for topic in topics:
+    wordList = list(df[topic])
+    maxCount = 0
+    maxCountArticleName = ''
+    maxCountArticleDate = ''
+    for article in articles:
+        count = 0
+        preprocessed = article['preprocessed'].split(" ")
+        for word in preprocessed:
+            if word in wordList:
+                count +=1
+        if count > maxCount:
+            maxCount = count 
+            maxCountArticleName = article['title']
+            maxCountArticleDate = article['date']
+    print("------------------------------------------------------------")
+    print("Topic : " + topic + "\n No. of occurences : " + str(maxCount) + "\n Article name : " + maxCountArticleName + "\n Article Date : " + maxCountArticleDate)
