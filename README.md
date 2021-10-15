@@ -24,3 +24,80 @@ Topics Table-
 | 17 | canada               | bile            | spain            | offer           | 21               | count          | notre            | side                 | talk                  | much               | 10                | part              | friday                |
 | 18 | deal                 | tournament      | earn             | little          | korea            | nine           | fencing          | much                 | many                  | stylist            | place             | face              | place                 |
 | 19 | prefontaine          | try             | lot              | need            | seven            | offensive      | championship     |                      | michael               | four               | race              | competition       | republic              |
+
+
+------------------------------------------------------------
+Topic : trackevents
+ No. of occurences : 37
+ Article name : LOOK: Sha'Carri Richardson sounds off after her first race following her suspension at Prefontaine Classic
+ Article Date : 8/21/2021
+------------------------------------------------------------
+Topic : trends
+ No. of occurences : 38
+ Article name : Mexico vs. Japan odds, predictions: Soccer expert reveals picks for Tokyo Olympics 2020 bronze medal match
+ Article Date : 8/6/2021
+------------------------------------------------------------
+Topic : unclear1
+ No. of occurences : 29
+ Article name : Olympics 2020 basketball odds, picks: Australia vs. Slovenia bronze medal game predictions from proven expert
+ Article Date : 8/7/2021
+------------------------------------------------------------
+Topic : people
+ No. of occurences : 41
+ Article name : 2020 Tokyo Olympics: The cost of athletes achieving dreams has become extraordinarily high
+ Article Date : 8/9/2021
+------------------------------------------------------------
+Topic : numbers
+ No. of occurences : 81
+ Article name : 2020 Tokyo Olympics medal count: USA tops China in gold, silver, bronze and overall medal totals
+ Article Date : 8/8/2021
+------------------------------------------------------------
+Topic : stats
+ No. of occurences : 64
+ Article name : Olympics 2020 basketball odds, picks: Australia vs. Slovenia bronze medal game predictions from proven expert
+ Article Date : 8/7/2021
+------------------------------------------------------------
+Topic : fencing
+ No. of occurences : 33
+ Article name : USA Fencing coach Anthony 'Buckie' Leach dies in motorcycle accident shortly after Tokyo Games
+ Article Date : 8/16/2021
+------------------------------------------------------------
+Topic : fashionweek
+ No. of occurences : 22
+ Article name : Tokyo Paralympics 2021: British powerlifter Ali Jawad self-isolated for three years in preparation for Games
+ Article Date : 8/26/2021
+------------------------------------------------------------
+Topic : musicfashion
+ No. of occurences : 20
+ Article name : 2020 Tokyo Olympics: The cost of athletes achieving dreams has become extraordinarily high
+ Article Date : 8/9/2021
+------------------------------------------------------------
+Topic : gymnastic
+ No. of occurences : 24
+ Article name : Tokyo Olympics: Allyson Felix kept running, stood up to Nike and redefined what's possible for women in sports
+ Article Date : 8/6/2021
+------------------------------------------------------------
+Topic : running
+ No. of occurences : 21
+ Article name : 2020 Tokyo Olympics: Day 16 schedule, what to watch, results from Games
+ Article Date : 8/7/2021
+------------------------------------------------------------
+Topic : unclear2
+ No. of occurences : 35
+ Article name : 2020 Tokyo Olympics: Men's basketball tournament TV schedule, live stream, start times, group standings
+ Article Date : 8/7/2021
+------------------------------------------------------------
+Topic : winners
+ No. of occurences : 36
+ Article name : 'Running saved me': Long-distance runner Paul Chelimo's path from Kenya to the U.S. Army to the Olympic podium
+ Article Date : 9/9/2021
+------------------------------------------------------------
+Topic : dateandtime
+ No. of occurences : 36
+ Article name : 2020 Tokyo Olympics: Men's basketball tournament TV schedule, live stream, start times, group standings
+ Article Date : 8/7/2021
+------------------------------------------------------------
+Topic : unclear3
+ No. of occurences : 53
+ Article name : 'Running saved me': Long-distance runner Paul Chelimo's path from Kenya to the U.S. Army to the Olympic podium
+ Article Date : 9/9/2021
