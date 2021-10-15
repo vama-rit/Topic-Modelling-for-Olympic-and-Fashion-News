@@ -2,7 +2,7 @@
 
 Topics Table-
 
-|    | (0, 'trackevents')   | (1, 'trends')   | (2, 'unknown')   | (3, 'people')   | (4, 'numbers')   | (5, 'stats')   | (6, 'fencing')   | (7, 'fashionweek')   | (8, 'musicfashion')   | (9, 'gymnastic')   | (10, 'running')   | (11, 'winners')   | (12, 'dateandtime')   |
+|    | (0, 'trackevents')   | (1, 'trends')   | (2, 'unclear')   | (3, 'people')   | (4, 'numbers')   | (5, 'stats')   | (6, 'fencing')   | (7, 'fashionweek')   | (8, 'musicfashion')   | (9, 'gymnastic')   | (10, 'running')   | (11, 'winners')   | (12, 'dateandtime')   |
 |---:|:---------------------|:----------------|:-----------------|:----------------|:-----------------|:---------------|:-----------------|:---------------------|:----------------------|:-------------------|:------------------|:------------------|:----------------------|
 |  0 | richardson           | season          | chelimo          | parchment       | 6                | slovenia       | 2022             | chanel               | nâ€™t                 | paralympic         | seidel            | mclaughlin        | much                  |
 |  1 | race                 | goal            | king             | end             | 7                | sportsline     | coach            | jawad                | hat                   | history            | marathon          | steveson          | storey                |
