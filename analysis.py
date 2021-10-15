@@ -135,7 +135,6 @@ for i in lines:
         if "*" in i[j]:
             i[j]=i[j].partition("*")[2]
     i.pop(0)
-    i.remove('')
     if '' in i:
         i.remove('')
 
